@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./site-fixes.css";
 
 export const metadata: Metadata = {
   title: "GoodcallAI | Every missed call could be your next booked job",
