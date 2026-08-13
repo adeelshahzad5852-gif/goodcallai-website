@@ -84,7 +84,7 @@ function DemoForm({ compact = false, offer = "free demo" }: { compact?: boolean;
     <div className="booking-benefits"><span>✓ Times shown in your timezone</span><span>✓ Google Meet link included</span><span>✓ Enter your details once</span></div>
     <a className="button button-wide" href={bookingScheduleUrl} target="_blank" rel="noreferrer">Choose a time for your {offer} <span>→</span></a>
     <p className="form-note">You’ll enter your contact and business details—including your website and trade—once on the secure booking page.</p>
-    <a className="whatsapp-link" href="https://wa.me/923116465485?text=Hi%20GoodcallAI%2C%20I%27d%20like%20a%20custom%20AI%20call%20demo." target="_blank" rel="noreferrer">Need a faster response? <b>Message us on WhatsApp</b> <span>↗</span></a>
+    <a className="whatsapp-link" href="https://wa.me/17472362546?text=Hi%20GoodcallAI%2C%20I%27d%20like%20a%20custom%20AI%20call%20demo." target="_blank" rel="noreferrer">Need a faster response? <b>Message us on WhatsApp</b> <span>↗</span></a>
   </div>;
 }
 
@@ -102,7 +102,7 @@ function Hero({ industry }: { industry?: (typeof industries)[number] }) {
 function ContactList() {
   return <section className="contact-list" aria-label="Contact GoodcallAI">
     <a href="mailto:hello@goodcallai.org"><span className="contact-list-icon">@</span><span><small>1 · Email</small><strong>hello@goodcallai.org</strong><em>Send us your questions or business details.</em></span><b>Write to us →</b></a>
-    <a href="https://wa.me/923116465485?text=Hi%20GoodcallAI%2C%20I%27d%20like%20to%20talk%20about%20an%20AI%20receptionist." target="_blank" rel="noreferrer"><span className="contact-list-icon whatsapp">◉</span><span><small>2 · WhatsApp</small><strong>Message GoodcallAI</strong><em>Best for a quick conversation with our team.</em></span><b>Start a chat ↗</b></a>
+    <a href="https://wa.me/17472362546?text=Hi%20GoodcallAI%2C%20I%27d%20like%20to%20talk%20about%20an%20AI%20receptionist." target="_blank" rel="noreferrer"><span className="contact-list-icon whatsapp">◉</span><span><small>2 · WhatsApp</small><strong>Message GoodcallAI</strong><em>Best for a quick conversation with our team.</em></span><b>Start a chat ↗</b></a>
   </section>;
 }
 

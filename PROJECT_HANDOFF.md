@@ -21,7 +21,7 @@
 ## Contact / calendar
 
 - Email: hello@goodcallai.org
-- WhatsApp: +923116465485 (`wa.me/923116465485`)
+- WhatsApp: +1 747 236 2546 (`wa.me/17472362546`)
 - Google Calendar schedule: Discovery Call, 15 minutes, 15-minute buffer, every day, 10 AM–6 PM America/Chicago, Google Meet, confirmation email.
 - Booking URL is in `app/components/Site.tsx` as `bookingScheduleUrl`.
 - Main Request Demo buttons now open that calendar booking page.
