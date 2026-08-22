@@ -9,10 +9,7 @@ type IndustryKey = "hvac" | "plumbers" | "electricians";
 const bookingScheduleUrl = "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3qZrBQ6S-W782JUygtFJiwdV_SInvA6hmJd0nJ0hTcNmm8LUTF-afjVY8-STyi_hiJ7_RGQVJf";
 
 // ── Contact details ───────────────────────────────────────────────────────────
-// TODO(adeel): swap in a Dallas-area number (214/469/972) before launch. A local
-// number materially lifts answer rates on outbound and trust on inbound.
 const phoneDisplay = "(747) 236-2546";
-const phoneHref = "tel:+17472362546";
 const whatsappHref = "https://wa.me/17472362546?text=Hi%20GoodcallAI%2C%20I%27d%20like%20a%20custom%20AI%20call%20demo.";
 const linkedInUrl = "https://www.linkedin.com/company/goodcallai";
 
@@ -59,7 +56,7 @@ function Nav() {
         <a href="/contact">Contact</a>
       </div>
       <details className="mobile-menu"><summary aria-label="Open navigation menu">Menu</summary><div className="mobile-menu-panel"><strong>Explore GoodcallAI</strong><a href="/">Home</a><a href="/hvac">HVAC</a><a href="/plumbers">Plumbing</a><a href="/electricians">Electrical</a><a href="/ai-receptionist">AI Receptionist</a><a href="/websites">Websites</a><a href="/how-it-works">How It Works</a><a href="/contact">Contact</a><a className="mobile-demo-link" href={bookingScheduleUrl} target="_blank" rel="noreferrer">Book your free demo →</a></div></details>
-      <a className="nav-phone" href={phoneHref}><span aria-hidden="true">☎</span> {phoneDisplay}</a><a className="button button-small" href={bookingScheduleUrl} target="_blank" rel="noreferrer">Book a free demo</a>
+      <a className="nav-phone" href={whatsappHref} target="_blank" rel="noreferrer"><span aria-hidden="true">◉</span> WhatsApp us</a><a className="button button-small" href={bookingScheduleUrl} target="_blank" rel="noreferrer">Book a free demo</a>
     </nav>
   </header>;
 }
@@ -105,7 +102,7 @@ function DemoForm({ compact = false, offer = "free demo" }: { compact?: boolean;
 }
 
 function Footer() {
-  return <footer className="footer"><div><a className="brand footer-brand" href="/"><span className="brand-mark">G</span>Goodcall<span>AI</span></a><p>Custom AI receptionists for home-service teams.</p><a className="footer-email" href={phoneHref}>{phoneDisplay}</a><a className="footer-email" href="mailto:hello@goodcallai.org">hello@goodcallai.org</a><p className="footer-area">Serving HVAC, plumbing, and electrical contractors across the Dallas\u2013Fort Worth Metroplex.</p><div className="footer-social"><a href={linkedInUrl} target="_blank" rel="noreferrer" aria-label="GoodcallAI on LinkedIn">LinkedIn</a><a href={whatsappHref} target="_blank" rel="noreferrer" aria-label="GoodcallAI on WhatsApp">WhatsApp</a></div></div><div className="footer-links"><a href="/dallas">Dallas\u2013Fort Worth</a><a href="/hvac">HVAC</a><a href="/plumbers">Plumbing</a><a href="/electricians">Electrical</a><a href="/pricing">Pricing</a><a href="/websites">Websites</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div><p className="copyright">\u00a9 2026 GoodcallAI. All rights reserved.</p></footer>;
+  return <footer className="footer"><div><a className="brand footer-brand" href="/"><span className="brand-mark">G</span>Goodcall<span>AI</span></a><p>Custom AI receptionists for home-service teams.</p><a className="footer-email" href={whatsappHref} target="_blank" rel="noreferrer">WhatsApp {phoneDisplay}</a><a className="footer-email" href="mailto:hello@goodcallai.org">hello@goodcallai.org</a><p className="footer-area">Serving HVAC, plumbing, and electrical contractors across the Dallas\u2013Fort Worth Metroplex.</p><div className="footer-social"><a href={linkedInUrl} target="_blank" rel="noreferrer" aria-label="GoodcallAI on LinkedIn">LinkedIn</a><a href={whatsappHref} target="_blank" rel="noreferrer" aria-label="GoodcallAI on WhatsApp">WhatsApp</a></div></div><div className="footer-links"><a href="/dallas">Dallas\u2013Fort Worth</a><a href="/hvac">HVAC</a><a href="/plumbers">Plumbing</a><a href="/electricians">Electrical</a><a href="/websites">Websites</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div><p className="copyright">\u00a9 2026 GoodcallAI. All rights reserved.</p></footer>;
 }
 
 function Hero({ industry }: { industry?: (typeof industries)[number] }) {
@@ -159,13 +156,13 @@ function WebsiteProcess() {
 }
 
 export function HomePage() {
-  return <main><Nav /><Hero /><div className="signal-bar"><span>AI answers in seconds</span><i /><span>Urgent requests captured</span><i /><span>Built around your business</span></div><CostSection /><BadOptions /><MotionStories /><HandlesSection /><section className="website-promo section"><div><p className="eyebrow">Also available</p><h2>A better phone experience starts with a better website.</h2><p>We also create modern, conversion-focused websites that help home-service customers trust your business, get in touch, and book service.</p><a href="/websites" className="text-link">Explore our website service <span>→</span></a></div><div className="site-stack"><div className="site-window back"><span /><span /><span /></div><div className="site-window front"><span /><span /><span /><strong>Your next customer is already looking.</strong><small>Make it easy to call.</small></div></div></section><LiveDemoStrip /><AudioDemos /><Process /><PricingSection /><FaqSection /><section className="final-cta"><div><p className="eyebrow">A custom demo for your business</p><h2>Hear what your business sounds like when every call gets answered.</h2><p>Choose a time, and we’ll take it from there.</p></div><DemoForm compact /></section><Footer /></main>;
+  return <main><Nav /><Hero /><div className="signal-bar"><span>AI answers in seconds</span><i /><span>Urgent requests captured</span><i /><span>Custom built for your business</span></div><CostSection /><BadOptions /><MotionStories /><HandlesSection /><section className="website-promo section"><div><p className="eyebrow">Also available</p><h2>A better phone experience starts with a better website.</h2><p>We also create modern, conversion-focused websites that help home-service customers trust your business, get in touch, and book service.</p><a href="/websites" className="text-link">Explore our website service <span>→</span></a></div><div className="site-stack"><div className="site-window back"><span /><span /><span /></div><div className="site-window front"><span /><span /><span /><strong>Your next customer is already looking.</strong><small>Make it easy to call.</small></div></div></section><CustomDemoStrip /><AudioDemos /><Process /><FaqSection /><section className="final-cta"><div><p className="eyebrow">A custom demo for your business</p><h2>Hear what your business sounds like when every call gets answered.</h2><p>Choose a time, and we’ll take it from there.</p></div><DemoForm compact /></section><Footer /></main>;
 }
 
 export function IndustryPage({ kind }: { kind: IndustryKey }) {
   const industry = industries.find((item) => item.slug === kind)!;
   const industryLabel = kind === "hvac" ? "HVAC" : industry.name.toLowerCase();
-  return <main><Nav /><Hero industry={industry} /><section className="industry-photo section"><img src={industry.image} alt={`${industry.name} technician working in the field`} /><div><p className="eyebrow">{industry.photoEyebrow}</p><h2>{industry.photoTitle}</h2><p>{industry.photoText}</p><div className="photo-call"><span>Incoming call</span><b>{industry.issue}</b><i>Answered by AI in 3 seconds</i></div></div></section><CostSection /><HandlesSection industry={industry} /><LiveDemoStrip /><AudioDemos /><Process /><FaqSection /><section className="final-cta"><div><p className="eyebrow">Your {industryLabel} call demo</p><h2>Find out what missed {industryLabel} calls could be costing your business.</h2><p>Choose a time to hear a demo tailored to your business.</p></div><DemoForm compact /></section><Footer /></main>;
+  return <main><Nav /><Hero industry={industry} /><section className="industry-photo section"><img src={industry.image} alt={`${industry.name} technician working in the field`} /><div><p className="eyebrow">{industry.photoEyebrow}</p><h2>{industry.photoTitle}</h2><p>{industry.photoText}</p><div className="photo-call"><span>Incoming call</span><b>{industry.issue}</b><i>Answered by AI in 3 seconds</i></div></div></section><CostSection /><HandlesSection industry={industry} /><CustomDemoStrip /><AudioDemos /><Process /><FaqSection /><section className="final-cta"><div><p className="eyebrow">Your {industryLabel} call demo</p><h2>Find out what missed {industryLabel} calls could be costing your business.</h2><p>Choose a time to hear a demo tailored to your business.</p></div><DemoForm compact /></section><Footer /></main>;
 }
 
 export function SimplePage({ slug }: { slug: string }) {
@@ -217,52 +214,14 @@ export function PolicyPage({ type }: { type: keyof typeof policyContent }) {
   return <main><Nav /><section className="simple-hero policy-hero"><p className="eyebrow">{policy.eyebrow}</p><h1>{policy.title}</h1><p>{policy.intro}</p></section><article className="policy-content">{policy.sections.map(([heading, text]) => <section key={heading}><h2>{heading}</h2><p>{text}</p></section>)}</article><Footer /></main>;
 }
 
-// ── Live demo: the phone number on this site is answered by our own AI ────────
-function LiveDemoStrip() {
-  return <section className="live-demo-strip"><div><p className="eyebrow">Try it before you book anything</p><h2>Call our number. You&rsquo;ll be talking to the AI.</h2><p>The line below is answered by the same kind of receptionist we build for contractors. Ask it about pricing, tell it you have an emergency, try to trip it up. No form, no signup.</p></div><div className="live-demo-actions"><a className="button button-lg" href={phoneHref}><span aria-hidden="true">&#9742;</span> Call {phoneDisplay}</a><a className="button button-quiet" href={bookingScheduleUrl} target="_blank" rel="noreferrer">Or book a walkthrough &rarr;</a></div></section>;
+// ── Custom demo offer ────────────────────────────────────────────
+function CustomDemoStrip() {
+  return <section className="live-demo-strip"><div><p className="eyebrow">Hear it on your own business first</p><h2>We&rsquo;ll build the demo before you commit to anything.</h2><p>Send us your company name and we&rsquo;ll build a short recording of the receptionist answering a real call for your business &mdash; your name, your trade, your service area. Listen to it in your own time. If it isn&rsquo;t right for you, nothing happens next.</p></div><div className="live-demo-actions"><a className="button button-lg" href={whatsappHref} target="_blank" rel="noreferrer">Get my demo on WhatsApp</a><a className="button button-quiet" href={bookingScheduleUrl} target="_blank" rel="noreferrer">Or book a 15-min call &rarr;</a></div></section>;
 }
 
 function AudioDemos() {
   if (callRecordings.length === 0) return null;
   return <section className="section audio-demos"><div className="section-head"><p className="eyebrow">Real call recordings</p><h2>Hear it handle the calls you actually get.</h2></div><div className="audio-grid">{callRecordings.map((clip) => <article key={clip.src}><h3>{clip.label}</h3><p>{clip.description}</p><audio controls preload="none" src={clip.src}><track kind="captions" srcLang="en" label="English transcript" src={clip.captions} default />Your browser does not support audio playback.</audio></article>)}</div></section>;
-}
-
-// ── Pricing ───────────────────────────────────────────────────────────────────
-// TODO(adeel): confirm these numbers before merging. They are a recommendation,
-// not a commitment. Rationale: Goodcall.com lists $79-$199/mo self-serve; we are
-// done-for-you and custom-built, so we sit above it. Founding rate buys proof.
-const pricingTiers = [
-  {
-    name: "Founding client",
-    price: "$199",
-    cadence: "per month",
-    lead: "First 5 contractors only. Rate locked for 12 months.",
-    features: ["Custom AI receptionist built for your trade", "24/7 answering, including nights and weekends", "Urgent-call rules and live transfer to your on-call tech", "Call summaries by text and email after every call", "Setup and changes handled by us \u2014 no software to learn", "14-day pilot first. You pay nothing until it books you a job."],
-    cta: "Claim a founding slot",
-    featured: true,
-  },
-  {
-    name: "Standard",
-    price: "$349",
-    cadence: "per month",
-    lead: "Our rate once the founding slots are gone.",
-    features: ["Everything in the founding plan", "Appointment booking straight into your calendar", "Custom call scripts per service type", "Monthly call review and tuning"],
-    cta: "Book a demo",
-    featured: false,
-  },
-  {
-    name: "Receptionist + website",
-    price: "$1,200",
-    cadence: "one-time, then monthly plan",
-    lead: "For contractors whose website is costing them the call.",
-    features: ["Everything in Standard", "A new mobile-first website built to drive calls", "Google Business Profile cleanup", "Click-to-call and service-area pages"],
-    cta: "Talk it through",
-    featured: false,
-  },
-];
-
-function PricingSection() {
-  return <section className="section pricing"><div className="section-head"><p className="eyebrow">Straightforward pricing</p><h2>What it costs, before you get on a call.</h2><p>No setup fee for founding clients. No contract. Cancel with 30 days&rsquo; notice.</p></div><div className="pricing-grid">{pricingTiers.map((tier) => <article key={tier.name} className={tier.featured ? "featured" : ""}>{tier.featured && <span className="pricing-badge">Best value right now</span>}<h3>{tier.name}</h3><p className="pricing-price">{tier.price} <small>{tier.cadence}</small></p><p className="pricing-lead">{tier.lead}</p><ul>{tier.features.map((f) => <li key={f}>{f}</li>)}</ul><a className={`button ${tier.featured ? "" : "button-quiet"} button-wide`} href={bookingScheduleUrl} target="_blank" rel="noreferrer">{tier.cta} &rarr;</a></article>)}</div><p className="pricing-note">Compare that to one missed no-cool call in July. Most DFW contractors quote $350&ndash;$600 on a repair visit and several thousand on a system replacement.</p></section>;
 }
 
 // ── FAQ (with FAQPage structured data) ────────────────────────────────────────
@@ -272,7 +231,8 @@ const faqs = [
   ["Do I have to change my phone number?", "No. You keep your number and forward it to us, either all the time or only when nobody picks up within a few rings. You can turn it off whenever you want."],
   ["What if it does not know the answer?", "It says so and takes a message, or transfers to you. We build it from your website, your service area, and your pricing rules, so it will not invent answers about your business."],
   ["How long does setup take?", "Usually two to three days from the time you send us your details. There is nothing for you to install and nothing for your team to learn."],
-  ["What does it cost?", "Founding clients pay $199 a month with no setup fee, locked for twelve months. There is a 14-day pilot before that, and you pay nothing until it books you a job."],
+  ["Is this software I have to sign up for?", "No. There is nothing for you to log into and nothing for your team to learn. We build the receptionist for your business, we run it, and we make changes for you when your services or hours change."],
+  ["What does it cost?", "It depends on what we build. A single after-hours line is a very different job from a full call flow with booking, transfers and service-area rules, so we quote the build after we have heard how your calls actually work. There is a monthly management fee on top. We will give you the number on the demo call, before you commit to anything."],
 ];
 
 function FaqSection() {
@@ -289,23 +249,18 @@ const dfwCities = ["Dallas", "Fort Worth", "Plano", "Arlington", "Irving", "Garl
 
 export function DallasPage() {
   return <main><Nav />
-    <section className="hero"><div className="hero-copy"><p className="eyebrow"><span className="eyebrow-dot" />AI receptionist for Dallas&ndash;Fort Worth contractors</p><h1>The call you miss at 7pm is the job your competitor books at 7:05.</h1><p className="hero-text">GoodcallAI answers the phone for HVAC, plumbing, and electrical companies across the Metroplex &mdash; nights, weekends, and every time your crew is already on a job. Real voice, your rules, your calendar.</p><div className="hero-actions"><a className="button" href={phoneHref}><span aria-hidden="true">&#9742;</span> Call the AI now</a><a className="button button-quiet" href={bookingScheduleUrl} target="_blank" rel="noreferrer">Book a 15-min walkthrough</a></div><p className="hero-note">Built and managed for you. 14-day pilot. Cancel any time.</p></div><div className="hero-art"><div className="orbit orbit-one" /><div className="orbit orbit-two" /><CallVisual /></div></section>
+    <section className="hero"><div className="hero-copy"><p className="eyebrow"><span className="eyebrow-dot" />AI receptionist for Dallas&ndash;Fort Worth contractors</p><h1>The call you miss at 7pm is the job your competitor books at 7:05.</h1><p className="hero-text">GoodcallAI answers the phone for HVAC, plumbing, and electrical companies across the Metroplex &mdash; nights, weekends, and every time your crew is already on a job. Real voice, your rules, your calendar.</p><div className="hero-actions"><a className="button" href={bookingScheduleUrl} target="_blank" rel="noreferrer">Book your free AI call demo <span>&rarr;</span></a><a className="button button-quiet" href={whatsappHref} target="_blank" rel="noreferrer">Message us on WhatsApp</a></div><p className="hero-note">Custom built around your calls. Managed for you. No software to learn.</p></div><div className="hero-art"><div className="orbit orbit-one" /><div className="orbit orbit-two" /><CallVisual /></div></section>
     <div className="signal-bar"><span>Answers in ~3 seconds</span><i /><span>Nights, weekends, holidays</span><i /><span>Serving all of DFW</span></div>
     <section className="section local-why"><div className="section-head"><p className="eyebrow">Why this matters here</p><h2>DFW summers do not wait for a callback.</h2><p>When a system fails in a Texas August, homeowners call down the list until somebody picks up. Whoever answers first books the job. That is the whole competition.</p></div><div className="option-grid"><article><span>1</span><h3>Your crew is on a roof</h3><p>Between drive time across the Metroplex and the job itself, the phone rings when nobody can reach it.</p></article><article><span>2</span><h3>Peak season buries you</h3><p>The weeks you most need to capture every lead are the weeks you have the least capacity to answer.</p></article><article><span>3</span><h3>After-hours is where the margin is</h3><p>Emergency calls carry premium pricing. They also come in at the exact hours an office is closed.</p></article></div></section>
-    <LiveDemoStrip />
+    <CustomDemoStrip />
     <AudioDemos />
     <HandlesSection />
-    <section className="section service-area"><div className="section-head"><p className="eyebrow">Service area</p><h2>We work with contractors across the Metroplex.</h2></div><ul className="city-list">{dfwCities.map((city) => <li key={city}>{city}</li>)}</ul><p className="pricing-note">Not on the list? If you serve DFW, we can serve you.</p></section>
-    <PricingSection />
+    <section className="section service-area"><div className="section-head"><p className="eyebrow">Service area</p><h2>We work with contractors across the Metroplex.</h2></div><ul className="city-list">{dfwCities.map((city) => <li key={city}>{city}</li>)}</ul><p className="section-note">Not on the list? If you serve DFW, we can serve you.</p></section>
     <FaqSection />
     <Process />
     <section className="final-cta"><div><p className="eyebrow">Dallas&ndash;Fort Worth contractors</p><h2>Find out what your missed calls are worth.</h2><p>Fifteen minutes. We will build a demo on your actual business and you can hear it before deciding anything.</p></div><DemoForm compact /></section>
     <Footer />
   </main>;
-}
-
-export function PricingPage() {
-  return <main><Nav /><section className="simple-hero"><p className="eyebrow">Pricing</p><h1>No quote-to-find-out.</h1><p>You should be able to see what this costs before you spend fifteen minutes on a call. Here it is.</p></section><PricingSection /><LiveDemoStrip /><FaqSection /><Footer /></main>;
 }
 
 export function NotFoundPage() {
