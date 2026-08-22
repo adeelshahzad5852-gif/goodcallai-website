@@ -139,20 +139,41 @@
       </div>
     </div>
 
-    <div class="hero-card">
-      <div class="hc-top">
-        <span class="dot"></span>
-        <span class="hc-label">Incoming call · 9:47 PM</span>
-        <span class="hc-answered">Answered</span>
+    <div class="call-panel">
+      <div class="cp-glow" aria-hidden="true"></div>
+
+      <div class="cp-bar">
+        <span class="cp-live" aria-hidden="true"><span class="cp-dot"></span></span>
+        <span class="cp-status">Call in progress</span>
+        <span class="cp-time">9:47 PM</span>
       </div>
-      <div class="hc-line"><span class="hc-who">Caller</span><span class="hc-text">My AC just quit and it&rsquo;s still ninety-something in here.</span></div>
-      <div class="hc-line"><span class="hc-who">GoodcallAI</span><span class="hc-text ai">Sorry to hear that — that&rsquo;s rough in this heat. Can I get your name and the service address?</span></div>
-      <div class="hc-line"><span class="hc-who">Caller</span><span class="hc-text">Mike Reyes, 4412 Bellview, Katy.</span></div>
-      <div class="hc-line"><span class="hc-who">GoodcallAI</span><span class="hc-text ai">Thanks Mike. Is the unit running at all, or completely dead?</span></div>
-      <div class="hc-line"><span class="hc-who">Caller</span><span class="hc-text">Running, but it&rsquo;s blowing warm.</span></div>
-      <div class="hc-out">
-        <span class="hc-tick" aria-hidden="true">✓</span>
-        <span><strong>Sent to the on-call tech</strong><small>Name · address · symptom · urgency</small></span>
+
+      <div class="cp-screen" role="img" aria-label="An animated example call: a Katy homeowner reaches GoodcallAI at 9:47pm about a failed air conditioner. The receptionist takes his name and address, checks whether the unit is running, books the first slot at 7:40 the next morning, and sends the details to the on-call technician.">
+        <div class="cp-track">
+          <div class="cp-msg them"><span class="cp-who">Caller</span>My AC just quit and it&rsquo;s still ninety-something in here.</div>
+          <div class="cp-msg ai"><span class="cp-who">GoodcallAI</span>Sorry to hear that &mdash; that&rsquo;s rough in this heat. Can I get your name and the service address?</div>
+          <div class="cp-msg them"><span class="cp-who">Caller</span>Mike Reyes, 4412 Bellview, Katy.</div>
+          <div class="cp-msg ai"><span class="cp-who">GoodcallAI</span>Thanks Mike. Is the unit running at all, or completely dead?</div>
+          <div class="cp-msg them"><span class="cp-who">Caller</span>Running, but it&rsquo;s blowing warm.</div>
+          <div class="cp-msg ai"><span class="cp-who">GoodcallAI</span>Got it. I have the on-call tech&rsquo;s first slot at 7:40 tomorrow, or I can page him tonight.</div>
+          <div class="cp-msg them"><span class="cp-who">Caller</span>Tomorrow morning is fine.</div>
+          <div class="cp-msg ai"><span class="cp-who">GoodcallAI</span>Booked &mdash; 7:40am at 4412 Bellview. You&rsquo;ll get a text confirmation.</div>
+          <div class="cp-chip"><span class="cp-tick" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 16 16"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="m3 8.4 3.2 3.2L13 4.8"/></svg></span><span><strong>Sent to the on-call tech</strong><small>Name &middot; address &middot; symptom &middot; urgency</small></span></div>
+          <div class="cp-msg them"><span class="cp-who">Caller</span>My AC just quit and it&rsquo;s still ninety-something in here.</div>
+          <div class="cp-msg ai"><span class="cp-who">GoodcallAI</span>Sorry to hear that &mdash; that&rsquo;s rough in this heat. Can I get your name and the service address?</div>
+          <div class="cp-msg them"><span class="cp-who">Caller</span>Mike Reyes, 4412 Bellview, Katy.</div>
+          <div class="cp-msg ai"><span class="cp-who">GoodcallAI</span>Thanks Mike. Is the unit running at all, or completely dead?</div>
+          <div class="cp-msg them"><span class="cp-who">Caller</span>Running, but it&rsquo;s blowing warm.</div>
+          <div class="cp-msg ai"><span class="cp-who">GoodcallAI</span>Got it. I have the on-call tech&rsquo;s first slot at 7:40 tomorrow, or I can page him tonight.</div>
+          <div class="cp-msg them"><span class="cp-who">Caller</span>Tomorrow morning is fine.</div>
+          <div class="cp-msg ai"><span class="cp-who">GoodcallAI</span>Booked &mdash; 7:40am at 4412 Bellview. You&rsquo;ll get a text confirmation.</div>
+          <div class="cp-chip"><span class="cp-tick" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 16 16"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="m3 8.4 3.2 3.2L13 4.8"/></svg></span><span><strong>Sent to the on-call tech</strong><small>Name &middot; address &middot; symptom &middot; urgency</small></span></div>
+        </div>
+      </div>
+
+      <div class="cp-bars" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
       </div>
     </div>
   </div>
@@ -188,6 +209,118 @@
           <p>Emergency calls carry your best pricing. They also come in at exactly the hours an office is closed.</p>
         </article>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ What it handles ══════════════════════════════════════════════ -->
+<section class="section handles-band">
+  <div class="shell">
+    <div class="section-head">
+      <p class="eyebrow">On every call</p>
+      <h2>Details your team can act on.</h2>
+      <p class="lede">Not a name and a number scribbled on a message pad. The things that decide whether you go tonight or tomorrow.</p>
+    </div>
+    <div class="handles">
+      <article><h3>Urgent service requests</h3><p>Captures what is happening right now and follows your rules on what counts as an emergency worth calling out for.</p></article>
+      <article><h3>New service and estimate requests</h3><p>Collects the job details, the address, and what the caller is actually asking for before your team rings back.</p></article>
+      <article><h3>Booking and rescheduling</h3><p>Offers the slots you allow and confirms the appointment, or hands the caller a clear next step.</p></article>
+      <article><h3>Service-area and common questions</h3><p>Answers what you would answer — where you work, what you charge to come out, when you can get there.</p></article>
+      <article><h3>Transfers to your on-call tech</h3><p>When the call needs a human right now, it passes it through with the details already gathered.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Trades ═══════════════════════════════════════════════════════ -->
+<section class="section" id="trades">
+  <div class="shell">
+    <div class="section-head">
+      <p class="eyebrow">Built for your trade</p>
+      <h2>It asks what your trade needs asked.</h2>
+      <p class="lede">A no-cool call and a burst pipe need different questions in a different order. We write the call flow around your work, not a template.</p>
+    </div>
+    <div class="grid-3">
+
+      <article class="trade">
+        <img src="/assets/img/hvac-technician.webp" alt="HVAC technician servicing an outdoor air-conditioning unit" loading="lazy" width="1400" height="933">
+        <div class="trade-body">
+          <h3>HVAC</h3>
+          <p>No-cool and no-heat calls, maintenance bookings, and estimate requests on system replacements.</p>
+          <p class="trade-quote">&ldquo;Is the unit running at all, or completely dead?&rdquo;<small>Tells your tech what to load on the truck</small></p>
+        </div>
+      </article>
+
+      <article class="trade">
+        <img src="/assets/img/plumber-technician.webp" alt="Plumber working on pipework under a sink" loading="lazy" width="1400" height="933">
+        <div class="trade-body">
+          <h3>Plumbing</h3>
+          <p>Leaks, blockages and burst pipes, plus water-heater and re-pipe inquiries.</p>
+          <p class="trade-quote">&ldquo;Have you shut the main water off yet?&rdquo;<small>Limits the damage before anyone arrives</small></p>
+        </div>
+      </article>
+
+      <article class="trade">
+        <img src="/assets/img/electrician-technician.webp" alt="Electrician working at an electrical panel" loading="lazy" width="1400" height="933">
+        <div class="trade-body">
+          <h3>Electrical</h3>
+          <p>Power loss, tripping breakers, panel work and generator inquiries.</p>
+          <p class="trade-quote">&ldquo;Do you see smoke or sparks anywhere?&rdquo;<small>Sorts a safety call from a routine one</small></p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ How it works ═════════════════════════════════════════════════ -->
+<section class="section steps on-dark" id="how">
+  <div class="shell">
+    <div class="section-head centered">
+      <p class="eyebrow">Simple by design</p>
+      <h2>Live on your line in under a week.</h2>
+      <p class="lede">Three steps, and two of them are ours.</p>
+    </div>
+    <ol class="step-track">
+      <li>
+        <span class="step-num" aria-hidden="true">1</span>
+        <h3>Tell us about the business</h3>
+        <p>Your services, your area, your hours, and what you want asked on a call.</p>
+      </li>
+      <li>
+        <span class="step-num" aria-hidden="true">2</span>
+        <h3>We build it and you listen</h3>
+        <p>We write the call flow and record it handling your calls. You hear it before any customer does.</p>
+      </li>
+      <li>
+        <span class="step-num" aria-hidden="true">3</span>
+        <h3>Forward your phone</h3>
+        <p>Keep your number. Forward it always, or only when nobody picks up.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ══ Why us ═══════════════════════════════════════════════════════ -->
+<section class="section why-light">
+  <div class="shell">
+    <div class="section-head">
+      <p class="eyebrow">Why us</p>
+      <h2>You are hiring a service, not buying software.</h2>
+      <p class="lede">Most AI receptionists are a product you sign up for, configure yourself, and maintain. That is one more system for an owner who already has too many.</p>
+    </div>
+    <div class="grid-3 why-grid">
+      <article class="card">
+        <h3>Nothing to log into</h3>
+        <p>No dashboard, no setup wizard, no training for your team. If something needs changing, you tell us and we change it.</p>
+      </article>
+      <article class="card">
+        <h3>Home services only</h3>
+        <p>We do not build for dentists and law firms. Every call flow we write is for HVAC, plumbing or electrical work.</p>
+      </article>
+      <article class="card">
+        <h3>Built for one business</h3>
+        <p>Yours. Your services, your pricing rules, your service area, your definition of an emergency.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -235,121 +368,6 @@ CUT BELOW
 </section>
 CUT ABOVE
      ══════════════════════════════════════════════════════════════ -->
-
-<!-- ══ Trades ═══════════════════════════════════════════════════════ -->
-<section class="section" id="trades">
-  <div class="shell">
-    <div class="section-head">
-      <p class="eyebrow">Built for your trade</p>
-      <h2>It asks what your trade needs asked.</h2>
-      <p class="lede">A no-cool call and a burst pipe need different questions in a different order. We write the call flow around your work, not a template.</p>
-    </div>
-    <div class="grid-3">
-
-      <article class="trade">
-        <img src="/assets/img/hvac-technician.webp" alt="HVAC technician servicing an outdoor air-conditioning unit" loading="lazy" width="1400" height="933">
-        <div class="trade-body">
-          <h3>HVAC</h3>
-          <p>No-cool and no-heat calls, maintenance bookings, and estimate requests on system replacements.</p>
-          <p class="trade-quote">&ldquo;Is the unit running at all, or completely dead?&rdquo;<small>Tells your tech what to load on the truck</small></p>
-        </div>
-      </article>
-
-      <article class="trade">
-        <img src="/assets/img/plumber-technician.webp" alt="Plumber working on pipework under a sink" loading="lazy" width="1400" height="933">
-        <div class="trade-body">
-          <h3>Plumbing</h3>
-          <p>Leaks, blockages and burst pipes, plus water-heater and re-pipe inquiries.</p>
-          <p class="trade-quote">&ldquo;Have you shut the main water off yet?&rdquo;<small>Limits the damage before anyone arrives</small></p>
-        </div>
-      </article>
-
-      <article class="trade">
-        <img src="/assets/img/electrician-technician.webp" alt="Electrician working at an electrical panel" loading="lazy" width="1400" height="933">
-        <div class="trade-body">
-          <h3>Electrical</h3>
-          <p>Power loss, tripping breakers, panel work and generator inquiries.</p>
-          <p class="trade-quote">&ldquo;Do you see smoke or sparks anywhere?&rdquo;<small>Sorts a safety call from a routine one</small></p>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ══ What it handles ══════════════════════════════════════════════ -->
-<section class="section problem">
-  <div class="shell">
-    <div class="section-head">
-      <p class="eyebrow">On every call</p>
-      <h2>Details your team can act on.</h2>
-      <p class="lede">Not a name and a number scribbled on a message pad. The things that decide whether you go tonight or tomorrow.</p>
-    </div>
-    <div class="handles">
-      <article><h3>Urgent service requests</h3><p>Captures what is happening right now and follows your rules on what counts as an emergency worth calling out for.</p></article>
-      <article><h3>New service and estimate requests</h3><p>Collects the job details, the address, and what the caller is actually asking for before your team rings back.</p></article>
-      <article><h3>Booking and rescheduling</h3><p>Offers the slots you allow and confirms the appointment, or hands the caller a clear next step.</p></article>
-      <article><h3>Service-area and common questions</h3><p>Answers what you would answer — where you work, what you charge to come out, when you can get there.</p></article>
-      <article><h3>Transfers to your on-call tech</h3><p>When the call needs a human right now, it passes it through with the details already gathered.</p></article>
-    </div>
-  </div>
-</section>
-
-<!-- ══ How it works ═════════════════════════════════════════════════ -->
-<section class="section" id="how">
-  <div class="shell">
-    <div class="how-head">
-      <div class="section-head" style="margin-bottom:0">
-        <p class="eyebrow">How it works</p>
-        <h2>Live on your line in under a week.</h2>
-        <p class="lede">Three steps, and two of them are ours.</p>
-      </div>
-      <img src="/assets/img/home-booking-desk.webp" alt="A booked appointment showing on a calendar beside a phone" loading="lazy" width="1400" height="933">
-    </div>
-    <div class="grid-3">
-      <article class="card">
-        <span class="card-num">STEP 01</span>
-        <h3>Tell us about the business</h3>
-        <p>Your services, your area, your hours, and what you want asked on a call. Fifteen minutes on a call with us.</p>
-      </article>
-      <article class="card">
-        <span class="card-num">STEP 02</span>
-        <h3>We build and you listen</h3>
-        <p>We write the call flow and record it handling your calls. You hear it before it goes anywhere near a customer.</p>
-      </article>
-      <article class="card">
-        <span class="card-num">STEP 03</span>
-        <h3>Forward your phone</h3>
-        <p>Keep your number. Forward it always, or only when nobody picks up. Switch it off whenever you want.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ══ Why us ═══════════════════════════════════════════════════════ -->
-<section class="section why on-dark">
-  <div class="shell">
-    <div class="section-head">
-      <p class="eyebrow">Why us</p>
-      <h2>You are hiring a service, not buying software.</h2>
-      <p class="lede">Most AI receptionists are a product you sign up for, configure yourself, and maintain. That is one more system for an owner who already has too many.</p>
-    </div>
-    <div class="why-grid">
-      <article class="why-card">
-        <h3>Nothing to log into</h3>
-        <p>No dashboard, no setup wizard, no training for your team. If something needs changing, you tell us and we change it.</p>
-      </article>
-      <article class="why-card">
-        <h3>Home services only</h3>
-        <p>We do not build for dentists and law firms. Every call flow we write is for HVAC, plumbing or electrical work.</p>
-      </article>
-      <article class="why-card">
-        <h3>Built for one business</h3>
-        <p>Yours. Your services, your pricing rules, your service area, your definition of an emergency.</p>
-      </article>
-    </div>
-  </div>
-</section>
 
 <!-- ══ Service area ═════════════════════════════════════════════════ -->
 <section class="section" id="area">
