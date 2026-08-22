@@ -301,9 +301,19 @@ p{margin:0}
   }
 }
 
-/* ══ Why us, on light ══════════════════════════════════════════════════════ */
-.why-light{background:var(--paper)}
-.why-grid{margin-top:40px}
+/* ══ Why us ════════════════════════════════════════════════════════════════
+   Stays on the dark ground: on the pale band it disappeared completely
+   between two stronger sections. Trades now sits between it and the steps
+   so the two dark bands are never adjacent.
+   ═════════════════════════════════════════════════════════════════════════ */
+.why{background:var(--ink);color:var(--paper)}
+.why .eyebrow{color:var(--ember-soft)}
+.why .lede{color:#BDB4AA}
+.why-grid{display:grid;gap:20px;margin-top:40px;grid-template-columns:1fr}
+@media(min-width:760px){.why-grid{grid-template-columns:repeat(3,1fr)}}
+.why-card{background:#1D1A17;border:1px solid var(--line-dark);border-radius:var(--radius);padding:28px}
+.why-card h3{color:var(--paper);margin-bottom:9px}
+.why-card p{color:#A29A91;font-size:15px;line-height:1.6}
 
 .step-track li{align-content:start}
 .step-track h3{min-height:2.6em;display:flex;align-items:center}
