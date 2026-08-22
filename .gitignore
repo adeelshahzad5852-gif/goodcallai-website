@@ -41,3 +41,6 @@ preview-*.log
 /.wrangler/
 /outputs/
 /work/
+
+# TypeScript incremental build info
+*.tsbuildinfo

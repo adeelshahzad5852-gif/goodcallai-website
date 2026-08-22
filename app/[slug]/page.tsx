@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { IndustryPage, PolicyPage, SimplePage } from "../components/Site";
+import { DallasPage, IndustryPage, PolicyPage, SimplePage } from "../components/Site";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
 const pageMetadata: Record<string, { title: string; description: string }> = {
+  dallas: { title: "AI Receptionist for Dallas\u2013Fort Worth Contractors | GoodcallAI", description: "24/7 AI call answering for HVAC, plumbing, and electrical companies across Dallas, Fort Worth, Plano, Arlington, and the wider Metroplex. Call the AI yourself before you book anything." },
   hvac: { title: "AI Receptionist for HVAC Teams | GoodcallAI", description: "Answer HVAC calls 24/7, capture urgent requests, qualify leads, and keep technicians focused." },
   plumbers: { title: "AI Receptionist for Plumbing Teams | GoodcallAI", description: "Answer plumbing calls 24/7, capture leak and burst-pipe details, and keep plumbers focused on the job." },
   electricians: { title: "AI Receptionist for Electrical Teams | GoodcallAI", description: "Answer electrical calls 24/7, identify urgent requests, and transfer critical calls quickly." },
@@ -23,6 +24,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function Page({ params }: PageProps) {
   const { slug } = await params;
+  if (slug === "dallas") {
+    return <DallasPage />;
+  }
   if (slug === "hvac" || slug === "plumbers" || slug === "electricians") {
     return <IndustryPage kind={slug} />;
   }
