@@ -254,3 +254,8 @@
 
 .city-list{list-style:none;padding:0;margin:34px auto 0;max-width:900px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
 .city-list li{border:1px solid var(--line);border-radius:40px;padding:10px 20px;font-size:14px;font-weight:600;background:#fff;color:var(--ink)}
+
+/* Footer contact links must stack, not run together */
+.footer-email{display:block;width:fit-content}
+.footer-email + .footer-email{margin-top:6px}
+.mobile-whatsapp-link{margin-top:8px}

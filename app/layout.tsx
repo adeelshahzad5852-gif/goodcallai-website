@@ -68,6 +68,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <body>
+        {/* vinext ignores metadata.icons, so declare them here. React hoists
+            link tags into <head>. Without this the tab falls back to
+            /favicon.ico, which does not exist, and shows no icon at all. */}
+        <link rel="icon" href="/brand-icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/images/goodcallai-linkedin-logo.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

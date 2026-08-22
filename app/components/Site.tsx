@@ -11,7 +11,9 @@ const bookingScheduleUrl = "https://calendar.google.com/calendar/u/0/appointment
 // ── Contact details ───────────────────────────────────────────────────────────
 const phoneDisplay = "(747) 236-2546";
 const whatsappHref = "https://wa.me/17472362546?text=Hi%20GoodcallAI%2C%20I%27d%20like%20a%20custom%20AI%20call%20demo.";
-const linkedInUrl = "https://www.linkedin.com/company/goodcallai";
+// Numeric company ID resolves to the page and cannot go stale. Swap in the
+// vanity URL (linkedin.com/company/<name>) once the page handle is set.
+const linkedInUrl = "https://www.linkedin.com/company/140214047/";
 
 // Drop MP3s into public/audio/ and list them here. Empty array hides the section.
 // Recommended three: (1) HVAC no-cool after hours, (2) burst pipe at 2am,
@@ -55,7 +57,7 @@ function Nav() {
         <a href="/how-it-works">How It Works</a>
         <a href="/contact">Contact</a>
       </div>
-      <details className="mobile-menu"><summary aria-label="Open navigation menu">Menu</summary><div className="mobile-menu-panel"><strong>Explore GoodcallAI</strong><a href="/">Home</a><a href="/hvac">HVAC</a><a href="/plumbers">Plumbing</a><a href="/electricians">Electrical</a><a href="/ai-receptionist">AI Receptionist</a><a href="/websites">Websites</a><a href="/how-it-works">How It Works</a><a href="/contact">Contact</a><a className="mobile-demo-link" href={bookingScheduleUrl} target="_blank" rel="noreferrer">Book your free demo →</a></div></details>
+      <details className="mobile-menu"><summary aria-label="Open navigation menu">Menu</summary><div className="mobile-menu-panel"><strong>Explore GoodcallAI</strong><a href="/">Home</a><a href="/hvac">HVAC</a><a href="/plumbers">Plumbing</a><a href="/electricians">Electrical</a><a href="/ai-receptionist">AI Receptionist</a><a href="/websites">Websites</a><a href="/how-it-works">How It Works</a><a href="/contact">Contact</a><a className="mobile-demo-link" href={bookingScheduleUrl} target="_blank" rel="noreferrer">Book your free demo →</a><a className="mobile-demo-link mobile-whatsapp-link" href={whatsappHref} target="_blank" rel="noreferrer">Message us on WhatsApp</a></div></details>
       <a className="nav-phone" href={whatsappHref} target="_blank" rel="noreferrer"><span aria-hidden="true">◉</span> WhatsApp us</a><a className="button button-small" href={bookingScheduleUrl} target="_blank" rel="noreferrer">Book a free demo</a>
     </nav>
   </header>;
@@ -102,7 +104,7 @@ function DemoForm({ compact = false, offer = "free demo" }: { compact?: boolean;
 }
 
 function Footer() {
-  return <footer className="footer"><div><a className="brand footer-brand" href="/"><span className="brand-mark">G</span>Goodcall<span>AI</span></a><p>Custom AI receptionists for home-service teams.</p><a className="footer-email" href={whatsappHref} target="_blank" rel="noreferrer">WhatsApp {phoneDisplay}</a><a className="footer-email" href="mailto:hello@goodcallai.org">hello@goodcallai.org</a><p className="footer-area">Serving HVAC, plumbing, and electrical contractors across the Dallas\u2013Fort Worth Metroplex.</p><div className="footer-social"><a href={linkedInUrl} target="_blank" rel="noreferrer" aria-label="GoodcallAI on LinkedIn">LinkedIn</a><a href={whatsappHref} target="_blank" rel="noreferrer" aria-label="GoodcallAI on WhatsApp">WhatsApp</a></div></div><div className="footer-links"><a href="/dallas">Dallas\u2013Fort Worth</a><a href="/hvac">HVAC</a><a href="/plumbers">Plumbing</a><a href="/electricians">Electrical</a><a href="/websites">Websites</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div><p className="copyright">\u00a9 2026 GoodcallAI. All rights reserved.</p></footer>;
+  return <footer className="footer"><div><a className="brand footer-brand" href="/"><span className="brand-mark">G</span>Goodcall<span>AI</span></a><p>Custom AI receptionists for home-service teams.</p><a className="footer-email" href="mailto:hello@goodcallai.org">hello@goodcallai.org</a><a className="footer-email" href={whatsappHref} target="_blank" rel="noreferrer">WhatsApp {phoneDisplay}</a><p className="footer-area">Serving HVAC, plumbing, and electrical contractors across the Dallas&ndash;Fort Worth Metroplex.</p>{linkedInUrl && <div className="footer-social"><a href={linkedInUrl} target="_blank" rel="noreferrer" aria-label="GoodcallAI on LinkedIn">LinkedIn</a></div>}</div><div className="footer-links"><a href="/dallas">Dallas&ndash;Fort Worth</a><a href="/hvac">HVAC</a><a href="/plumbers">Plumbing</a><a href="/electricians">Electrical</a><a href="/websites">Websites</a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div><p className="copyright">&copy; 2026 GoodcallAI. All rights reserved.</p></footer>;
 }
 
 function Hero({ industry }: { industry?: (typeof industries)[number] }) {
@@ -226,12 +228,12 @@ function AudioDemos() {
 
 // ── FAQ (with FAQPage structured data) ────────────────────────────────────────
 const faqs = [
-  ["Does it sound like a robot?", "No. It uses natural voice and answers in about three seconds. Most callers do not realise it is not a person. Call our number and judge it yourself before you talk to us."],
-  ["What happens on a real emergency?", "You set the rules. A burst pipe or a burning smell can ring your on-call tech straight away, or send a text with the address and the details while the AI keeps the caller calm."],
+  ["Does it sound like a robot?", "It is not a phone menu and not a recording. It uses a natural voice, answers in about three seconds, and holds a real back-and-forth conversation. Rather than take our word for it, ask us for a demo built on your business and hear it for yourself."],
+  ["What happens on a real emergency?", "You set the rules. A burst pipe or a burning smell can ring your on-call tech right away, or send a text with the address and the details while the AI keeps the caller calm."],
   ["Do I have to change my phone number?", "No. You keep your number and forward it to us, either all the time or only when nobody picks up within a few rings. You can turn it off whenever you want."],
   ["What if it does not know the answer?", "It says so and takes a message, or transfers to you. We build it from your website, your service area, and your pricing rules, so it will not invent answers about your business."],
   ["How long does setup take?", "Usually two to three days from the time you send us your details. There is nothing for you to install and nothing for your team to learn."],
-  ["Is this software I have to sign up for?", "No. There is nothing for you to log into and nothing for your team to learn. We build the receptionist for your business, we run it, and we make changes for you when your services or hours change."],
+  ["Is this software I have to sign up for?", "No. This is not a product you sign up for and configure yourself. We build the receptionist around your business, we run it, and when your services, hours or pricing change you tell us and we update it."],
   ["What does it cost?", "It depends on what we build. A single after-hours line is a very different job from a full call flow with booking, transfers and service-area rules, so we quote the build after we have heard how your calls actually work. There is a monthly management fee on top. We will give you the number on the demo call, before you commit to anything."],
 ];
 
