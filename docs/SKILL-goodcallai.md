@@ -147,9 +147,21 @@ decided to revisit after five paying clients. Do not raise it before then.
 Terms place disputes in Harris County, Texas. Operator details still list him
 in Pakistan, which is accurate and intended.
 
-Full Houston playbook — scripts, objections, lead sources, follow-up
-sequences — is in repo `adeelshahzad5852-gif/cloude`, branch
-`claude/goodcallai-social-presence-d1yb2h`.
+## Where things live — two repos, do not mix them up
+
+**`adeelshahzad5852-gif/goodcallai-website`**, branch `main`:
+- `web/` — the live website
+- `docs/HANDOFF-live-demo.md` — brief for building the demo line
+- `docs/SKILL-goodcallai.md` — this skill
+
+**`adeelshahzad5852-gif/cloude`**, branch
+`claude/goodcallai-social-presence-d1yb2h`:
+- `README.md` and `playbook/01`–`07` — cold call scripts, objections, lead
+  sources, follow-up sequences, social plan
+
+The playbook is the **only** thing in `cloude`. Everything else, including
+every doc, is in `goodcallai-website` on `main`. Looking for a doc in
+`cloude` will find nothing.
 
 ## The standing challenge
 
