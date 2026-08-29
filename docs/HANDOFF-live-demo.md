@@ -17,7 +17,7 @@ Paste this whole file as your first message in the new chat.
 
 - **GoodcallAI** — managed, custom-built AI receptionists for HVAC, plumbing and electrical contractors.
 - **Market: Greater Houston, Texas.** (Switched from Dallas: Houston has ~2,238 HVAC contractors vs Dallas ~1,322, and its humidity drives failures year-round rather than in seasonal bursts.)
-- **Zero clients. Zero demos run.** Full time on this. Budget is nearly exhausted — assume every recurring cost matters.
+- **Zero clients. Zero demos run with a real contractor.** The demo line itself is built and tested; it has never been put in front of a Houston owner. Full time on this. Budget is nearly exhausted — assume every recurring cost matters.
 - Positioning: managed service, not software. Nothing for the owner to log into.
 - Pricing is **never published**. Every build is custom-quoted after hearing how their calls work, plus a monthly management fee. The number is given on the demo call.
 - Contact: hello@goodcallai.org · WhatsApp +1 747 236 2546 · goodcallai.org
@@ -35,7 +35,7 @@ Paste this whole file as your first message in the new chat.
 - Repo `adeelshahzad5852-gif/goodcallai-website`. **The site is in the `web/` folder**, not the repo root. Vercel's Root Directory is set to `web`.
 - Plain HTML and CSS. No framework, no build step, nothing to install.
 - Pages: one long `index.html`, plus `privacy.html` and `terms.html`.
-- Brand: ink `#141210`, rust `#D9531E` (orange on light), ember `#FF6A28` (orange on dark), paper `#FAF7F3`. Fonts Archivo + Public Sans, self-hosted. All colours are tokens at the top of `web/assets/styles.css`.
+- Brand: ink `#141210`, rust `#D9531E` (orange on light), ember `#FF6A28` (orange on dark), paper `#FAF7F3`. Fonts Archivo + Public Sans, self-hosted. All colors are tokens at the top of `web/assets/styles.css`.
 - Deliberately orange because every competitor — Goodcall, Retell, Smith.ai, Rosie — is white-and-blue.
 - DNS is on **Cloudflare**. A record → `76.76.21.21`, proxy set to **DNS only**. Namecheap's Advanced DNS tab does nothing while nameservers point at Cloudflare.
 - **Email lives in those same DNS records** (`mx1`/`mx2.privateemail.com`, SPF, DKIM, DMARC). **Never touch MX or TXT records.**
@@ -44,65 +44,101 @@ Paste this whole file as your first message in the new chat.
 
 `web/index.html` contains a **"Hear it" recordings section that is commented out** — look for the block marked `CUT BELOW` / `CUT ABOVE`. It is not public and never has been. It was built for three pre-recorded MP3 demos.
 
-**That approach is abandoned.** It is being replaced by the live demo line below. Either repurpose that block for the live demo, or delete it.
+**That approach is abandoned.** Nothing gets uploaded there — no MP3s, no video. The live demo line below replaces it, so the block becomes text plus one phone number, roughly 40 lines, no new files.
+
+A laptop-and-phone mockup of the replacement has been designed and approved in
+principle. **Nothing has been committed to `main`.** Do not push it until Adeel
+says so, and not before the demo number has been called and works — a dead
+number on the homepage is worse than no section.
+
+Decision on the number itself: **it goes on the page.** An earlier call to keep
+it off the site was wrong. The caller ID of anyone who dials it is a lead with a
+callback number attached, and Adeel has none of those. Cold calls stay the main
+way he hands it out; the site is a second catch. Revisit only if the call log
+shows strangers burning the plan.
 
 ---
 
-## THE CURRENT GOAL — build a live AI demo line
+## THE DEMO LINE — built and working
 
-A Houston contractor calls a number. The AI interviews him briefly about his business, then **role-plays as his own receptionist** so he can hear it handling his calls.
+A Houston contractor calls a number. The agent interviews him briefly about his
+business, then **role-plays as his own receptionist** so he can hear it handling
+his calls.
+
+**Status: live and tested end to end. Never yet used on a real contractor.**
+
+Demo number: **+1 928 843 3748**
 
 **Flow:**
-1. Twilio answers, plays a short recorded line: *"Press 1 to start your demo."*
-2. On keypress, connect to the ElevenLabs agent.
-3. Agent asks **3–4 questions**: business name, trade, service area, hours / what counts as an emergency.
-4. Agent says it will now act as his receptionist.
-5. **Owner plays the customer.** He asks what his real customers ask; the agent answers as his business.
-6. After the call: save the lead, follow up.
+1. Cartesia answers on that number and plays the opening line.
+2. The agent asks four questions: company name, trade, service area, and what
+   counts as an emergency after hours.
+3. It announces it is now his receptionist.
+4. **Owner plays the customer.** He calls in with whatever his real customers
+   ask. The agent answers as his business, screens against his own emergency
+   rule, offers a booking window, and reads the details back before hanging up.
+5. When he steps out of the role-play, it closes once and stops selling.
 
-This replaces both the recordings idea and, largely, the discovery call. It becomes the cold-call ask: *"call this number, it'll show you in three minutes"* — a far easier yes than "book fifteen minutes with me".
+This replaces both the recordings idea and, largely, the discovery call. It
+becomes the cold-call ask: *"call this number, it'll show you in three minutes"*
+— a far easier yes than "book fifteen minutes with me".
 
-### Stack — decided, do not relitigate
+### Stack — Cartesia. Changed 29 August 2026.
 
 | Piece | Choice |
 |---|---|
-| Voice agent | **ElevenLabs Agents** — $0.08/min, LLM and telephony billed separately |
-| Phone number | **Twilio** |
-| Automation | **n8n** |
+| Voice agent | **Cartesia**, built and edited in the Cartesia Playground |
+| Phone number | **Cartesia-provisioned**, free on the plan |
+| Automation | **none yet** |
 
-Rough cost: a 5-minute demo is about **$0.50 all-in**. ElevenLabs Creator (~$22/mo) gives ~275 min.
+**ElevenLabs, Twilio and n8n are all out.** What changed and why:
 
-### Architecture rule — this one matters
+- **Cartesia replaced ElevenLabs.** Cheaper — Pro is roughly $4–5/month against
+  ElevenLabs Creator at roughly $22 — faster to first audio, and it saves the
+  audio and transcript of every call automatically, which is what weeks 3–4 of
+  the playbook run on. The voice-realism edge ElevenLabs holds shows up on long
+  expressive speech, which a receptionist never does.
+- **Twilio dropped entirely.** Cartesia hands out a free US number on the plan,
+  so there is no number to buy and no balance to keep topped up. The Twilio
+  account still exists — Pay-as-you-go, about $1.97 on it — and is not needed.
+  Do not spend money there.
+- **n8n is not built and is not blocking.** Lead capture and follow-up can come
+  later. Demos run fine without it.
 
-**n8n must NOT sit inside the conversation loop.** ElevenLabs Agents already does speech-to-text, the LLM, text-to-speech and turn-taking natively. Routing each turn through n8n adds seconds per reply and the demo will sound broken.
+The old plan — Twilio answering, a press-1 gate, then handing off to ElevenLabs,
+with n8n around the call — is dead. Do not rebuild it.
 
-n8n belongs **around** the call only:
-- **During (once):** the agent calls one webhook tool → n8n fetches their website → returns services, service area, hours.
-- **After:** save the lead, text them, notify me.
+### The agent prompt
 
-### Abuse and cost control — already decided
+The prompt lives in the Cartesia Playground on the agent attached to the number,
+not in this repo. Two halves: the interview, then the role-play. Tested twice.
 
-**Phone calls have no IP address.** There is nothing to whitelist. The only identifier is the caller's phone number. Do not propose IP-based controls.
+Each of these was added after a test run exposed the problem:
 
-1. **Press-1 DTMF gate before connecting to ElevenLabs.** Bots don't press keys, and those seconds cost Twilio fractions of a cent while never touching ElevenLabs minutes. This is where the savings actually are.
-2. **One demo per phone number.** n8n checks the caller ID before connecting.
-3. **Concurrency cap 2–3.** ElevenLabs charges double ($0.16/min) above your plan's concurrency.
-4. **Max call length ~7 minutes.**
-5. **Twilio auto-recharge OFF**, keep ~$20 loaded — a real hard ceiling, not an alert.
-6. **ElevenLabs usage limit set on the account.**
-7. The number is mainly given out on calls, not blasted publicly.
+- One question per turn. Joining two with "or" confused the caller and cost 25
+  seconds of the demo.
+- The agent does not decide when the role-play ends. The owner does.
+- Close once, then stop selling. It used to deliver the closing three times.
+- Offer a booking window, never an exact arrival time, and read the details back
+  before hanging up. Refusing to book at all made it sound like voicemail.
+- Never quote a GoodcallAI price, never claim customers or results, and answer
+  honestly that Adeel is in Pakistan if asked.
+
+### Still open
+
+1. **The press-1 gate is gone.** Calls go straight to the agent, because
+   Cartesia answers the number directly and there is no Twilio flow in front of
+   it. Fine while the number only travels by mouth on cold calls. **Must be
+   answered before the number goes on the website.**
+2. **928 is an Arizona area code, not Houston.** Cosmetic, but worth swapping to
+   713, 281, 832 or 346 if Cartesia allows choosing one.
+3. **One demo per caller, a concurrency cap, a call-length cap** — all were
+   going to be n8n's job and none of them exist. Check what the Cartesia plan
+   already enforces before building anything.
+4. **The website section is designed but nothing is committed.** See "The hidden
+   section" above.
 
 ---
-
-## Start by asking me these — do not guess
-
-1. Twilio: account created? Number bought? Which area code?
-2. ElevenLabs: which plan am I on?
-3. n8n: cloud or self-hosted, and what is the webhook base URL?
-4. Should the demo number go on the public site, or only be given out on calls?
-5. What is my Houston-area outbound calling number?
-
-Then write the agent prompt: the 3–4 discovery questions, the handover line into role-play, and how it should behave when it doesn't know something.
 
 ## Also true, not urgent
 

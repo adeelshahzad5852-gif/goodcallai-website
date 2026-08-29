@@ -101,7 +101,8 @@ until something changes.
   and where demos get sent.
 - **Client work** — quoting, contracts, onboarding, building each
   receptionist, and managing changes once live.
-- **The website and demo line** — mostly built already.
+- **The website and demo line** — both built. The demo line runs on Cartesia
+  and works; it has never been put in front of a real contractor.
 
 ## Never
 
@@ -137,6 +138,40 @@ proxy **DNS only** — turning the proxy on breaks the certificate.
 **His email lives in those same records** — MX to mx1/mx2.privateemail.com,
 plus SPF, DKIM and DMARC. **Never edit or replace an MX or TXT record.**
 Adding a new TXT is fine; editing the existing one kills his email.
+
+## The demo line — built, running on Cartesia
+
+A contractor calls **+1 928 843 3748**. The agent asks four questions about his
+business — company name, trade, service area, what counts as an after-hours
+emergency — then role-plays as his own receptionist while he plays the customer.
+It screens against his own emergency rule, offers a booking window, reads the
+details back, and closes once when he steps out of the role-play.
+
+This is the cold-call ask: *"call this number, it'll show you in three minutes"*,
+which lands far more often than "book fifteen minutes with me".
+
+**Stack, changed 29 August 2026: Cartesia. ElevenLabs, Twilio and n8n are out.**
+
+- The agent and its prompt live in the **Cartesia Playground**, on the agent
+  attached to that number. Not in any repo.
+- The **phone number is Cartesia's**, free on the plan. Twilio is not used —
+  the account exists with about $1.97 on it and does not need topping up.
+- **n8n was never built** and is not blocking. Demos run without it.
+- Cartesia **records the audio and transcript of every call automatically**.
+  That is the raw material for proof and social content, and it is free.
+
+Do not rebuild the old design — Twilio answering, a press-1 gate, handing off
+to ElevenLabs, n8n around the call. It is dead. Cartesia does the whole loop.
+
+**Two things still open.** The press-1 gate is gone, so calls hit the agent
+directly — that must be answered before the number goes on the website. And 928
+is an Arizona area code, worth swapping to a Houston one when convenient.
+
+**When editing the prompt, do not undo these** — each was added after a test run
+exposed the problem: one question per turn, never two joined with "or"; the
+owner decides when the role-play ends, not the agent; close once and then stop
+selling; offer a booking window but never an exact arrival time, and read the
+details back before hanging up.
 
 ## Settled — do not reopen
 

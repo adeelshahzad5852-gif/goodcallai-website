@@ -53,6 +53,6 @@
 
 ## Deferred ideas / next likely task
 
-- Do not build website-theme galleries or the ElevenLabs roleplay feature yet; the user wants to prioritize getting clients first.
+- Do not build website-theme galleries yet; the user wants to prioritize getting clients first. (The roleplay demo line has since been built on Cartesia, not ElevenLabs — see `docs/HANDOFF-live-demo.md`. This file predates it and is stale in other places too.)
 - After hosting is live, test the real booking journey, email/WhatsApp links, all navigation, mobile layout, and domain/HTTPS.
 - Later, connect the calendar/form workflow to n8n and a CRM or Google Sheet so every lead is captured and the user receives an automatic notification.
