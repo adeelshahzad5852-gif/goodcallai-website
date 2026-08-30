@@ -104,10 +104,12 @@
       <a href="#problem">The problem</a>
       <a href="#trades">Your trade</a>
       <a href="#how">How it works</a>
+      <a href="#hear">Hear it</a>
       <a href="#area">Service area</a>
       <a href="#faq">FAQ</a>
     </nav>
 
+    <a class="btn btn-ghost btn-sm nav-demo" href="#hear">Hear it now</a>
     <a class="btn btn-primary btn-sm nav-cta" href="#book">Book a free demo</a>
 
     <details class="nav-menu">
@@ -116,8 +118,10 @@
         <a href="#problem">The problem</a>
         <a href="#trades">Your trade</a>
         <a href="#how">How it works</a>
+        <a href="#hear">Hear it</a>
         <a href="#area">Service area</a>
         <a href="#faq">FAQ</a>
+        <a class="btn btn-ghost btn-wide" href="#hear">Hear it now</a>
         <a class="btn btn-primary btn-wide" href="#book">Book a free demo</a>
       </div>
     </details>
@@ -326,49 +330,46 @@
   </div>
 </section>
 
-<!-- ══ Recordings ══════════════════════════════════════════════════
-     TO SWITCH ON, when the three recordings exist:
-       1. put the .mp3 files in /assets/audio/
-       2. put a matching .vtt transcript beside each one
-       3. delete the two lines marked CUT BELOW and CUT ABOVE
-     Left commented rather than hidden because a hidden <track> is still
-     fetched by the browser, which 404s on every page load.
-
-CUT BELOW
-<section class="section" id="hear">
+<!-- ══ Hear it — the live demo line ═══════════════════════════════ -->
+<section class="section hear" id="hear">
   <div class="shell">
     <div class="section-head">
       <p class="eyebrow">Hear it</p>
-      <h2>Real calls, start to finish.</h2>
-      <p class="lede">No slides and no promises — this is the receptionist handling the calls you actually get.</p>
+      <h2>Call it. It answers as <em>your</em> company.</h2>
+      <p class="lede">Not a recording of somebody else's business. Tell it your company name and your trade, and it picks up as your receptionist while you play the customer. Two minutes, and there is nothing to sign up for.</p>
     </div>
-    <div class="audio-grid">
-      <article class="card">
-        <h3>No cooling, 9pm in July</h3>
-        <p>Caller is hot and irritated. Gets the address, the symptom, and books the first morning slot.</p>
-        <audio controls preload="none" src="/assets/audio/no-cooling.mp3">
-          <track kind="captions" srclang="en" label="English transcript" src="/assets/audio/no-cooling.vtt" default>
-        </audio>
-      </article>
-      <article class="card">
-        <h3>Burst pipe, 2am</h3>
-        <p>Caller is panicking. Walks them to the shutoff valve, then pages the on-call plumber.</p>
-        <audio controls preload="none" src="/assets/audio/burst-pipe.mp3">
-          <track kind="captions" srclang="en" label="English transcript" src="/assets/audio/burst-pipe.vtt" default>
-        </audio>
-      </article>
-      <article class="card">
-        <h3>Estimate request</h3>
-        <p>Old system, wants a quote. Qualifies the job and puts an in-home estimate on the calendar.</p>
-        <audio controls preload="none" src="/assets/audio/estimate.mp3">
-          <track kind="captions" srclang="en" label="English transcript" src="/assets/audio/estimate.vtt" default>
-        </audio>
-      </article>
+
+    <div class="hear-steps">
+      <div class="hear-step">
+        <span class="hs-n">Step one</span>
+        <h3>Call the line.</h3>
+        <p>No form, no signup, nothing to install. Hang up whenever you have heard enough.</p>
+      </div>
+      <div class="hear-step">
+        <span class="hs-n">Step two</span>
+        <h3>Answer four questions.</h3>
+        <p>Your company name, your trade, the parts of Houston you cover, and what counts as an emergency after hours.</p>
+      </div>
+      <div class="hear-step">
+        <span class="hs-n">Step three</span>
+        <h3>Now you're the customer.</h3>
+        <p>It answers as your business. Ask it what your callers actually ask — no cooling at 9pm, a burst pipe, a price on a new system.</p>
+      </div>
+    </div>
+
+    <div class="callband">
+      <div class="cb-text">
+        <p class="cb-eyebrow">The demo line</p>
+        <h3>Try it on your own business.</h3>
+        <p class="cb-note">Open now. If it is busy, try again in a few minutes — we keep the line small on purpose.</p>
+      </div>
+      <div class="cb-num">
+        <a class="bignum" href="tel:+12346352475">(234)&nbsp;635-2475</a>
+        <p class="cb-sub">Tap to call. Two minutes, no pitch.</p>
+      </div>
     </div>
   </div>
 </section>
-CUT ABOVE
-     ══════════════════════════════════════════════════════════════ -->
 
 <!-- ══ Service area ═════════════════════════════════════════════════ -->
 <section class="section" id="area">
@@ -493,6 +494,7 @@ CUT ABOVE
         <a href="#problem">The problem</a>
         <a href="#trades">Your trade</a>
         <a href="#how">How it works</a>
+        <a href="#hear">Hear it</a>
         <a href="#area">Service area</a>
         <a href="#faq">FAQ</a>
         <a href="#book">Book a demo</a>
