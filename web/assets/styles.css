@@ -28,7 +28,7 @@
 }
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:92px}
 body{
   margin:0;background:var(--paper);color:var(--ink);
   font-family:var(--body);font-size:17px;line-height:1.62;
@@ -449,3 +449,79 @@ p{margin:0}
   .cp-bars i:nth-child(odd){height:15px;opacity:.7}
   .cp-bars i:nth-child(3n){height:8px}
 }
+
+/* ── Cost of missed calls ────────────────────────────────────────────── */
+.roi{background:var(--paper);border-top:1px solid var(--line)}
+.roi-grid{display:grid;gap:22px;grid-template-columns:1fr;align-items:start}
+@media(min-width:900px){.roi-grid{grid-template-columns:1.15fr .85fr;gap:28px}}
+
+.roi-inputs{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:30px;display:grid;gap:30px;box-shadow:var(--shadow);
+}
+.roi-field{display:grid;gap:10px}
+.roi-top{display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+.roi-field label{font-size:15.5px;color:var(--stone);line-height:1.45}
+.roi-val{
+  font-family:var(--display);font-size:23px;font-weight:800;letter-spacing:-.03em;
+  color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+.roi-scale{display:flex;justify-content:space-between;font-size:12.5px;color:var(--stone-light)}
+
+.roi-field input[type=range]{
+  -webkit-appearance:none;appearance:none;width:100%;height:6px;margin:4px 0 0;
+  background:var(--line);border-radius:99px;cursor:pointer;
+}
+.roi-field input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;width:24px;height:24px;border-radius:50%;
+  background:var(--rust);border:3px solid var(--white);cursor:pointer;
+  box-shadow:0 2px 8px rgba(20,18,15,.28);
+}
+.roi-field input[type=range]::-moz-range-thumb{
+  width:22px;height:22px;border-radius:50%;background:var(--rust);
+  border:3px solid var(--white);cursor:pointer;box-shadow:0 2px 8px rgba(20,18,15,.28);
+}
+.roi-field input[type=range]::-moz-range-track{height:6px;background:var(--line);border-radius:99px}
+
+.roi-result{
+  background:var(--ink);color:var(--paper);border-radius:var(--radius);
+  padding:32px;display:grid;gap:0;align-content:start;
+}
+.rr-label{
+  font-family:var(--display);font-size:11.5px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.16em;color:var(--ember-soft);
+}
+.rr-big{
+  font-family:var(--display);font-size:clamp(40px,7vw,56px);font-weight:800;
+  letter-spacing:-.04em;line-height:1;color:var(--paper);
+  margin-top:14px;font-variant-numeric:tabular-nums;
+}
+.rr-per{font-size:15px;color:#8A827A;margin-top:6px}
+.rr-year{font-size:16px;color:#BDB4AA;margin-top:18px;padding-top:18px;border-top:1px solid var(--line-dark)}
+.rr-year strong{color:var(--ember-soft);font-weight:700}
+.rr-work{font-size:14px;color:#8A827A;margin-top:10px;font-variant-numeric:tabular-nums}
+.rr-actions{display:grid;gap:10px;margin-top:26px}
+
+.roi-note{margin-top:22px;color:var(--stone-light);font-size:14px;max-width:70ch;line-height:1.6}
+
+/* ── Booking overlay ─────────────────────────────────────────────────── */
+.bookmodal{
+  width:min(760px,94vw);max-width:none;padding:0;border:none;
+  border-radius:var(--radius);background:var(--white);color:var(--ink);
+  box-shadow:0 40px 90px -30px rgba(20,18,15,.6);overflow:hidden;
+}
+.bookmodal::backdrop{background:rgba(20,18,15,.66)}
+.bm-bar{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:16px 20px;border-bottom:1px solid var(--line);background:var(--paper);
+}
+.bm-title{font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:-.02em}
+.bm-close{
+  border:none;background:transparent;color:var(--stone);font-size:28px;line-height:1;
+  padding:0 4px;cursor:pointer;border-radius:6px;
+}
+.bm-close:hover{color:var(--ink)}
+.bm-frame{display:block;width:100%;height:min(74vh,660px);border:0;background:var(--white)}
+
+.bm-fallback{padding:14px 20px;border-top:1px solid var(--line);background:var(--paper);font-size:13.5px;color:var(--stone)}
+.bm-fallback a{color:var(--rust);font-weight:600;text-decoration:underline}

@@ -103,6 +103,7 @@
     <nav class="nav-links" aria-label="Main">
       <a href="#problem">The problem</a>
       <a href="#trades">Your trade</a>
+      <a href="#cost">Missed calls</a>
       <a href="#how">How it works</a>
       <a href="#hear">Hear it</a>
       <a href="#area">Service area</a>
@@ -117,6 +118,7 @@
       <div class="nav-panel">
         <a href="#problem">The problem</a>
         <a href="#trades">Your trade</a>
+        <a href="#cost">Missed calls</a>
         <a href="#how">How it works</a>
         <a href="#hear">Hear it</a>
         <a href="#area">Service area</a>
@@ -215,6 +217,64 @@
         </article>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ══ Cost of missed calls ═════════════════════════════════════════ -->
+<section class="section roi" id="cost">
+  <div class="shell">
+    <div class="section-head">
+      <p class="eyebrow">Do the math</p>
+      <h2>What is a missed call actually costing you?</h2>
+      <p class="lede">Three numbers you already know. Move the sliders and see the gap in your own money. Nothing is sent anywhere and nothing is saved.</p>
+    </div>
+
+    <div class="roi-grid">
+
+      <div class="roi-inputs">
+        <div class="roi-field">
+          <div class="roi-top">
+            <label for="roiCalls">Calls you miss in a month</label>
+            <output class="roi-val" id="roiCallsOut" for="roiCalls">40</output>
+          </div>
+          <input type="range" id="roiCalls" min="5" max="200" step="5" value="40">
+          <div class="roi-scale"><span>5</span><span>200</span></div>
+        </div>
+
+        <div class="roi-field">
+          <div class="roi-top">
+            <label for="roiRate">Of the calls you answer, how many become jobs</label>
+            <output class="roi-val" id="roiRateOut" for="roiRate">40%</output>
+          </div>
+          <input type="range" id="roiRate" min="5" max="100" step="5" value="40">
+          <div class="roi-scale"><span>5%</span><span>100%</span></div>
+        </div>
+
+        <div class="roi-field">
+          <div class="roi-top">
+            <label for="roiValue">Your average job value</label>
+            <output class="roi-val" id="roiValueOut" for="roiValue">$450</output>
+          </div>
+          <input type="range" id="roiValue" min="100" max="5000" step="50" value="450">
+          <div class="roi-scale"><span>$100</span><span>$5,000</span></div>
+        </div>
+      </div>
+
+      <aside class="roi-result on-dark">
+        <p class="rr-label">Revenue walking past you</p>
+        <p class="rr-big" id="roiMonth">$7,200</p>
+        <p class="rr-per">a month</p>
+        <p class="rr-year">That is <strong id="roiYear">$86,400</strong> over a year.</p>
+        <p class="rr-work" id="roiWork">40 missed calls &times; 40% booked &times; $450 a job.</p>
+        <div class="rr-actions">
+          <a class="btn btn-primary btn-wide" href="#hear">Hear it on your business <span aria-hidden="true">&rarr;</span></a>
+          <a class="btn btn-ghost btn-wide" href="#book">Book a free demo</a>
+        </div>
+      </aside>
+
+    </div>
+
+    <p class="roi-note">This is arithmetic on the numbers you enter, nothing more. We make no claim here about how many of those calls we would recover &mdash; that is what the demo is for.</p>
   </div>
 </section>
 
@@ -446,7 +506,7 @@
         <span class="cc-step">First choice</span>
         <h3>Book a free demo</h3>
         <p>Fifteen minutes. Pick a time that works, and we will have your demo ready.</p>
-        <a class="btn btn-primary btn-wide" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3qZrBQ6S-W782JUygtFJiwdV_SInvA6hmJd0nJ0hTcNmm8LUTF-afjVY8-STyi_hiJ7_RGQVJf" target="_blank" rel="noopener noreferrer">Choose a time <span aria-hidden="true">→</span></a>
+        <a class="btn btn-primary btn-wide" data-book-open href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3qZrBQ6S-W782JUygtFJiwdV_SInvA6hmJd0nJ0hTcNmm8LUTF-afjVY8-STyi_hiJ7_RGQVJf" target="_blank" rel="noopener noreferrer">Choose a time <span aria-hidden="true">→</span></a>
       </article>
 
       <article class="contact-card">
@@ -493,6 +553,7 @@
       <nav class="footer-links" aria-label="Footer">
         <a href="#problem">The problem</a>
         <a href="#trades">Your trade</a>
+        <a href="#cost">Missed calls</a>
         <a href="#how">How it works</a>
         <a href="#hear">Hear it</a>
         <a href="#area">Service area</a>
@@ -508,6 +569,71 @@
     </div>
   </div>
 </footer>
+
+<!-- ══ Booking overlay — keeps the visitor on goodcallai.org ════════ -->
+<dialog class="bookmodal" id="bookModal" aria-label="Book a free demo">
+  <div class="bm-bar">
+    <p class="bm-title">Book a free demo</p>
+    <button class="bm-close" type="button" data-book-close aria-label="Close booking">&times;</button>
+  </div>
+  <iframe class="bm-frame" id="bookFrame" title="GoodcallAI booking calendar"
+          data-src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3qZrBQ6S-W782JUygtFJiwdV_SInvA6hmJd0nJ0hTcNmm8LUTF-afjVY8-STyi_hiJ7_RGQVJf?gv=true"
+          loading="lazy" frameborder="0"></iframe>
+  <p class="bm-fallback">Calendar not loading? <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3qZrBQ6S-W782JUygtFJiwdV_SInvA6hmJd0nJ0hTcNmm8LUTF-afjVY8-STyi_hiJ7_RGQVJf" target="_blank" rel="noopener noreferrer">Open it in a new tab</a>, or email <a href="mailto:hello@goodcallai.org">hello@goodcallai.org</a>.</p>
+</dialog>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ── Cost of missed calls ───────────────────────────────────────── */
+  var calls = document.getElementById('roiCalls');
+  if (calls) {
+    var rate   = document.getElementById('roiRate');
+    var value  = document.getElementById('roiValue');
+    var money  = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+
+    var out = {
+      calls: document.getElementById('roiCallsOut'),
+      rate:  document.getElementById('roiRateOut'),
+      value: document.getElementById('roiValueOut'),
+      month: document.getElementById('roiMonth'),
+      year:  document.getElementById('roiYear'),
+      work:  document.getElementById('roiWork')
+    };
+
+    function draw() {
+      var c = +calls.value, r = +rate.value, v = +value.value;
+      var lost = c * (r / 100) * v;
+
+      out.calls.textContent = c;
+      out.rate.textContent  = r + '%';
+      out.value.textContent = money.format(v);
+      out.month.textContent = money.format(lost);
+      out.year.textContent  = money.format(lost * 12);
+      out.work.textContent  = c + ' missed calls × ' + r + '% booked × ' + money.format(v) + ' a job.';
+    }
+
+    [calls, rate, value].forEach(function (el) { el.addEventListener('input', draw); });
+    draw();
+  }
+
+  /* ── Booking overlay ────────────────────────────────────────────── */
+  var modal = document.getElementById('bookModal');
+  var frame = document.getElementById('bookFrame');
+  if (modal && frame && typeof modal.showModal === 'function') {
+    document.querySelectorAll('[data-book-open]').forEach(function (trigger) {
+      trigger.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (!frame.src) { frame.src = frame.dataset.src; }
+        modal.showModal();
+      });
+    });
+    modal.querySelector('[data-book-close]').addEventListener('click', function () { modal.close(); });
+    modal.addEventListener('click', function (e) { if (e.target === modal) { modal.close(); } });
+  }
+})();
+</script>
 
 </body>
 </html>
