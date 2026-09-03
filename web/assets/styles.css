@@ -525,3 +525,8 @@ p{margin:0}
 
 .bm-fallback{padding:14px 20px;border-top:1px solid var(--line);background:var(--paper);font-size:13.5px;color:var(--stone)}
 .bm-fallback a{color:var(--rust);font-weight:600;text-decoration:underline}
+.bm-fallback.is-slow{
+  background:var(--rust);color:var(--white);font-size:15px;font-weight:600;
+  border-top-color:var(--rust);
+}
+.bm-fallback.is-slow a{color:var(--white)}
