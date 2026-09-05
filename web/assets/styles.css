@@ -536,8 +536,9 @@ p{margin:0}
   width:min(540px,94vw);max-width:none;padding:0;border:none;position:relative;
   border-radius:16px;background:var(--white);color:var(--ink);
   box-shadow:0 40px 90px -30px rgba(20,18,15,.6);overflow:hidden;
-  max-height:calc(100dvh - 28px);display:flex;flex-direction:column;
+  max-height:calc(100dvh - 28px);
 }
+.leadmodal[open]{display:flex;flex-direction:column}
 .leadmodal::backdrop{background:rgba(20,18,15,.72)}
 .leadmodal>.lm-body,.leadmodal>.lm-done{overflow-y:auto;-webkit-overflow-scrolling:touch}
 .lm-close{
