@@ -570,6 +570,62 @@
   </div>
 </footer>
 
+<!-- ══ Lead capture — appears once, then never again for that visitor ═══ -->
+<dialog class="leadmodal" id="leadModal" aria-labelledby="leadTitle">
+  <button class="lm-close" type="button" data-lead-close aria-label="Close">&times;</button>
+
+  <div class="lm-body" id="leadBody">
+    <p class="lm-eyebrow">No cost, no commitment</p>
+    <h2 class="lm-title" id="leadTitle">Get your free demo in two days.</h2>
+    <p class="lm-lede">We build a receptionist on <em>your</em> business &mdash; your company name, your trade, your service area &mdash; and send you a number to call. You hear it answer your own phone before you decide anything.</p>
+
+    <form class="lm-form" id="leadForm" novalidate>
+      <input type="hidden" name="access_key" id="leadKey">
+      <input type="hidden" name="subject" value="New demo request from goodcallai.org">
+      <input type="hidden" name="from_name" value="GoodcallAI website">
+      <input type="checkbox" name="botcheck" class="lm-hp" tabindex="-1" autocomplete="off">
+
+      <div class="lm-row">
+        <label class="lm-field">
+          <span>Your name</span>
+          <input type="text" name="name" autocomplete="name" required>
+        </label>
+        <label class="lm-field">
+          <span>Business name</span>
+          <input type="text" name="business" autocomplete="organization" required>
+        </label>
+      </div>
+
+      <div class="lm-row">
+        <label class="lm-field">
+          <span>Phone</span>
+          <input type="tel" name="phone" autocomplete="tel" required>
+        </label>
+        <label class="lm-field">
+          <span>Email</span>
+          <input type="email" name="email" autocomplete="email" required>
+        </label>
+      </div>
+
+      <label class="lm-field">
+        <span>Website <i>optional</i></span>
+        <input type="url" name="website" inputmode="url" placeholder="https://">
+      </label>
+
+      <p class="lm-error" id="leadError" hidden></p>
+      <button class="btn btn-primary btn-wide" type="submit" id="leadSubmit">Build my demo</button>
+      <p class="lm-fine">We call or text once to confirm your trade and service area. Nothing else, and we never pass your details on.</p>
+    </form>
+  </div>
+
+  <div class="lm-done" id="leadDone" hidden>
+    <p class="lm-tick" aria-hidden="true">&check;</p>
+    <h2>Got it.</h2>
+    <p>We will build your demo and send the number within two days. If you would rather not wait, the demo line is live right now &mdash; <a href="tel:+12346352475">(234)&nbsp;635-2475</a>.</p>
+    <button class="btn btn-ghost" type="button" data-lead-close>Close</button>
+  </div>
+</dialog>
+
 <!-- ══ Booking overlay — keeps the visitor on goodcallai.org ════════ -->
 <dialog class="bookmodal" id="bookModal" aria-label="Book a free demo">
   <div class="bm-bar">
@@ -647,6 +703,107 @@
 
     modal.querySelector('[data-book-close]').addEventListener('click', function () { modal.close(); });
     modal.addEventListener('click', function (e) { if (e.target === modal) { modal.close(); } });
+  }
+
+  /* ── Lead capture overlay ───────────────────────────────────────────
+     TO SWITCH THIS ON: paste the Web3Forms access key below. Until a real
+     key is here the overlay never opens, so nothing broken can go live.
+     Get one free at https://web3forms.com — it emails the key, no account. */
+  var LEAD_KEY   = 'PASTE_WEB3FORMS_ACCESS_KEY_HERE';
+  var LEAD_URL   = 'https://api.web3forms.com/submit';
+  var LEAD_DELAY = 15000;                 /* how long before it appears */
+  var LEAD_SEEN  = 'gc_lead_v1';          /* remembers this visitor */
+
+  var lead = document.getElementById('leadModal');
+  var configured = LEAD_KEY && LEAD_KEY.indexOf('PASTE_') !== 0;
+
+  if (lead && configured && typeof lead.showModal === 'function') {
+    var form   = document.getElementById('leadForm');
+    var body   = document.getElementById('leadBody');
+    var done   = document.getElementById('leadDone');
+    var err    = document.getElementById('leadError');
+    var send   = document.getElementById('leadSubmit');
+    document.getElementById('leadKey').value = LEAD_KEY;
+
+    function remembered() {
+      try { return localStorage.getItem(LEAD_SEEN) === '1'; } catch (e) { return false; }
+    }
+    function remember() {
+      try { localStorage.setItem(LEAD_SEEN, '1'); } catch (e) {}
+    }
+
+    if (!remembered()) {
+      setTimeout(function () {
+        if (remembered() || lead.open) { return; }
+        if (modal && modal.open) { return; }   /* never stack on the booking overlay */
+        lead.showModal();
+        remember();                            /* shown once, that is the deal */
+      }, LEAD_DELAY);
+    }
+
+    /* Any element with data-lead-open reopens it — nothing uses this yet,
+       so a visitor who dismisses the overlay cannot get it back. Add the
+       attribute to a button in the Get started section when we want one. */
+    document.querySelectorAll('[data-lead-open]').forEach(function (b) {
+      b.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (!lead.open && !(modal && modal.open)) { lead.showModal(); }
+      });
+    });
+
+    lead.querySelectorAll('[data-lead-close]').forEach(function (b) {
+      b.addEventListener('click', function () { lead.close(); });
+    });
+    lead.addEventListener('click', function (e) { if (e.target === lead) { lead.close(); } });
+
+    function fail(msg) {
+      err.textContent = msg;
+      err.hidden = false;
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      err.hidden = true;
+
+      var required = ['name', 'business', 'phone', 'email'];
+      var bad = null;
+      required.forEach(function (n) {
+        var f = form.elements[n];
+        var ok = f.value.trim().length > 1;
+        if (n === 'email') { ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.value.trim()); }
+        if (n === 'phone') { ok = f.value.replace(/\D/g, '').length >= 7; }
+        f.setAttribute('aria-invalid', ok ? 'false' : 'true');
+        if (!ok && !bad) { bad = f; }
+      });
+      if (bad) {
+        fail('Check the highlighted field and try again.');
+        bad.focus();
+        return;
+      }
+
+      send.disabled = true;
+      send.textContent = 'Sending\u2026';
+
+      var payload = {};
+      new FormData(form).forEach(function (v, k) { payload[k] = v; });
+
+      fetch(LEAD_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload)
+      })
+        .then(function (r) { return r.json().catch(function () { return { success: r.ok }; }); })
+        .then(function (d) {
+          if (!d.success) { throw new Error('rejected'); }
+          body.hidden = true;
+          done.hidden = false;
+        })
+        .catch(function () {
+          send.disabled = false;
+          send.textContent = 'Build my demo';
+          fail('That did not send. Email hello@goodcallai.org or call (234) 635-2475 and we will sort it.');
+        });
+    });
   }
 })();
 </script>
