@@ -570,51 +570,73 @@
   </div>
 </footer>
 
-<!-- ══ Lead capture — appears once, then never again for that visitor ═══ -->
+<!-- ══ Demo request — appears once, then never again for that visitor ═══ -->
 <dialog class="leadmodal" id="leadModal" aria-labelledby="leadTitle">
   <button class="lm-close" type="button" data-lead-close aria-label="Close">&times;</button>
 
   <div class="lm-body" id="leadBody">
-    <p class="lm-eyebrow">No cost, no commitment</p>
-    <h2 class="lm-title" id="leadTitle">Get your free demo in two days.</h2>
-    <p class="lm-lede">We build a receptionist on <em>your</em> business &mdash; your company name, your trade, your service area &mdash; and send you a number to call. You hear it answer your own phone before you decide anything.</p>
+    <p class="lm-eyebrow">Free demo &middot; No commitment</p>
+    <h2 class="lm-title" id="leadTitle">Hear it answer your phone. Two days.</h2>
+    <p class="lm-lede">We build a receptionist on your business &mdash; your company name, your trade, your service area &mdash; then send you a number. You call it and hear it handle your own calls before you decide anything.</p>
 
     <form class="lm-form" id="leadForm" novalidate>
       <input type="hidden" name="access_key" id="leadKey">
-      <input type="hidden" name="subject" value="New demo request from goodcallai.org">
+      <input type="hidden" name="subject" value="Demo request from goodcallai.org">
       <input type="hidden" name="from_name" value="GoodcallAI website">
       <input type="checkbox" name="botcheck" class="lm-hp" tabindex="-1" autocomplete="off">
 
-      <div class="lm-row">
-        <label class="lm-field">
-          <span>Your name</span>
-          <input type="text" name="name" autocomplete="name" required>
-        </label>
-        <label class="lm-field">
-          <span>Business name</span>
-          <input type="text" name="business" autocomplete="organization" required>
-        </label>
+      <div class="lm-field" data-field="business">
+        <label for="lf-business">Business name</label>
+        <input type="text" id="lf-business" name="business" autocomplete="organization"
+               placeholder="Ironwood Heating and Air" required>
+        <p class="lm-msg" hidden></p>
       </div>
 
-      <div class="lm-row">
-        <label class="lm-field">
-          <span>Phone</span>
-          <input type="tel" name="phone" autocomplete="tel" required>
-        </label>
-        <label class="lm-field">
-          <span>Email</span>
-          <input type="email" name="email" autocomplete="email" required>
-        </label>
+      <div class="lm-field" data-field="website">
+        <label for="lf-website">Website</label>
+        <input type="text" id="lf-website" name="website" autocomplete="url" inputmode="url"
+               placeholder="ironwoodair.com" required>
+        <p class="lm-msg" hidden></p>
       </div>
 
-      <label class="lm-field">
-        <span>Website <i>optional</i></span>
-        <input type="url" name="website" inputmode="url" placeholder="https://">
-      </label>
+      <div class="lm-field" data-field="name">
+        <label for="lf-name">Your name</label>
+        <input type="text" id="lf-name" name="name" autocomplete="name" placeholder="Mike Reyes" required>
+        <p class="lm-msg" hidden></p>
+      </div>
+
+      <div class="lm-field" data-field="phone">
+        <label for="lf-phone">Phone</label>
+        <input type="tel" id="lf-phone" name="phone" autocomplete="tel" placeholder="(713) 555-0188" required>
+        <p class="lm-msg" hidden></p>
+      </div>
+
+      <div class="lm-field" data-field="email">
+        <label for="lf-email">Email</label>
+        <input type="email" id="lf-email" name="email" autocomplete="email" placeholder="mike@ironwoodair.com" required>
+        <p class="lm-msg" hidden></p>
+      </div>
+
+      <div class="lm-extra">
+        <button class="lm-more" type="button" id="leadMore" aria-expanded="false" aria-controls="leadExtraPanel">
+          <span class="lm-more-ico" aria-hidden="true">+</span>
+          <span class="lm-more-txt">Additional info</span>
+        </button>
+        <p class="lm-more-hint">Want the demo sharper? Tell us anything that would make it sound like your shop.</p>
+
+        <div class="lm-extra-panel" id="leadExtraPanel" hidden>
+          <div class="lm-field" data-field="details">
+            <label for="lf-details">Anything we should know</label>
+            <textarea id="lf-details" name="details" rows="4"
+              placeholder="Trade and service area, how you want the phone answered, what counts as an emergency, the calls you hate missing most."></textarea>
+            <p class="lm-hint">Optional. The more you give us, the closer the demo lands.</p>
+          </div>
+        </div>
+      </div>
 
       <p class="lm-error" id="leadError" hidden></p>
       <button class="btn btn-primary btn-wide" type="submit" id="leadSubmit">Build my demo</button>
-      <p class="lm-fine">We call or text once to confirm your trade and service area. Nothing else, and we never pass your details on.</p>
+      <p class="lm-fine">Your details stay with us. We never sell or pass them on.</p>
     </form>
   </div>
 
@@ -705,45 +727,35 @@
     modal.addEventListener('click', function (e) { if (e.target === modal) { modal.close(); } });
   }
 
-  /* ── Lead capture overlay ───────────────────────────────────────────
-     TO SWITCH THIS ON: paste the Web3Forms access key below. Until a real
-     key is here the overlay never opens, so nothing broken can go live.
-     Get one free at https://web3forms.com — it emails the key, no account. */
-  var LEAD_KEY   = 'PASTE_WEB3FORMS_ACCESS_KEY_HERE';
+  /* ── Demo request overlay ──────────────────────────────────────────── */
+  var LEAD_KEY   = 'a9d05928-993d-4cca-905a-5817f4d2543c';   /* Web3Forms */
   var LEAD_URL   = 'https://api.web3forms.com/submit';
-  var LEAD_DELAY = 15000;                 /* how long before it appears */
-  var LEAD_SEEN  = 'gc_lead_v1';          /* remembers this visitor */
+  var LEAD_DELAY = 6000;               /* how long before it appears */
+  var LEAD_SEEN  = 'gc_lead_v1';       /* remembers this visitor */
 
   var lead = document.getElementById('leadModal');
-  var configured = LEAD_KEY && LEAD_KEY.indexOf('PASTE_') !== 0;
 
-  if (lead && configured && typeof lead.showModal === 'function') {
-    var form   = document.getElementById('leadForm');
-    var body   = document.getElementById('leadBody');
-    var done   = document.getElementById('leadDone');
-    var err    = document.getElementById('leadError');
-    var send   = document.getElementById('leadSubmit');
+  if (lead && LEAD_KEY && LEAD_KEY.indexOf('PASTE_') !== 0 && typeof lead.showModal === 'function') {
+    var form = document.getElementById('leadForm');
+    var body = document.getElementById('leadBody');
+    var done = document.getElementById('leadDone');
+    var err  = document.getElementById('leadError');
+    var send = document.getElementById('leadSubmit');
     document.getElementById('leadKey').value = LEAD_KEY;
 
-    function remembered() {
-      try { return localStorage.getItem(LEAD_SEEN) === '1'; } catch (e) { return false; }
-    }
-    function remember() {
-      try { localStorage.setItem(LEAD_SEEN, '1'); } catch (e) {}
-    }
+    function seen()   { try { return localStorage.getItem(LEAD_SEEN) === '1'; } catch (e) { return false; } }
+    function mark()   { try { localStorage.setItem(LEAD_SEEN, '1'); } catch (e) {} }
 
-    if (!remembered()) {
+    if (!seen()) {
       setTimeout(function () {
-        if (remembered() || lead.open) { return; }
-        if (modal && modal.open) { return; }   /* never stack on the booking overlay */
+        if (seen() || lead.open) { return; }
+        if (modal && modal.open) { return; }      /* never stack on the booking overlay */
         lead.showModal();
-        remember();                            /* shown once, that is the deal */
+        mark();
       }, LEAD_DELAY);
     }
 
-    /* Any element with data-lead-open reopens it — nothing uses this yet,
-       so a visitor who dismisses the overlay cannot get it back. Add the
-       attribute to a button in the Get started section when we want one. */
+    /* Any element with data-lead-open reopens it. Nothing carries that yet. */
     document.querySelectorAll('[data-lead-open]').forEach(function (b) {
       b.addEventListener('click', function (e) {
         e.preventDefault();
@@ -756,33 +768,66 @@
     });
     lead.addEventListener('click', function (e) { if (e.target === lead) { lead.close(); } });
 
-    function fail(msg) {
-      err.textContent = msg;
-      err.hidden = false;
+    /* Additional info */
+    var more  = document.getElementById('leadMore');
+    var panel = document.getElementById('leadExtraPanel');
+    more.addEventListener('click', function () {
+      var open = more.getAttribute('aria-expanded') === 'true';
+      more.setAttribute('aria-expanded', open ? 'false' : 'true');
+      panel.hidden = open;
+      if (!open) { document.getElementById('lf-details').focus(); }
+    });
+
+    /* Validation — one message under the field that is wrong */
+    var RULES = {
+      business: { test: function (v) { return v.length > 1; },
+                  msg:  'Tell us the name of the business.' },
+      website:  { test: function (v) { return /^([a-z0-9-]+\.)+[a-z]{2,}(\/\S*)?$/i.test(v.replace(/^https?:\/\//i, '')); },
+                  msg:  'Enter your web address, like ironwoodair.com' },
+      name:     { test: function (v) { return v.length > 1; },
+                  msg:  'Tell us who we are speaking to.' },
+      phone:    { test: function (v) { return v.replace(/\D/g, '').length >= 10; },
+                  msg:  'A ten-digit number we can reach you on.' },
+      email:    { test: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); },
+                  msg:  'Check the email address.' }
+    };
+
+    function setField(name, ok, msg) {
+      var wrap = form.querySelector('[data-field="' + name + '"]');
+      var out  = wrap.querySelector('.lm-msg');
+      wrap.classList.toggle('is-bad', !ok);
+      wrap.querySelector('input').setAttribute('aria-invalid', ok ? 'false' : 'true');
+      out.textContent = ok ? '' : msg;
+      out.hidden = ok;
     }
+
+    Object.keys(RULES).forEach(function (n) {
+      form.elements[n].addEventListener('input', function () {
+        if (form.querySelector('[data-field="' + n + '"]').classList.contains('is-bad')) {
+          setField(n, RULES[n].test(this.value.trim()), RULES[n].msg);
+        }
+      });
+    });
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       err.hidden = true;
 
-      var required = ['name', 'business', 'phone', 'email'];
-      var bad = null;
-      required.forEach(function (n) {
-        var f = form.elements[n];
-        var ok = f.value.trim().length > 1;
-        if (n === 'email') { ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.value.trim()); }
-        if (n === 'phone') { ok = f.value.replace(/\D/g, '').length >= 7; }
-        f.setAttribute('aria-invalid', ok ? 'false' : 'true');
-        if (!ok && !bad) { bad = f; }
+      var first = null;
+      Object.keys(RULES).forEach(function (n) {
+        var el = form.elements[n];
+        var ok = RULES[n].test(el.value.trim());
+        setField(n, ok, RULES[n].msg);
+        if (!ok && !first) { first = el; }
       });
-      if (bad) {
-        fail('Check the highlighted field and try again.');
-        bad.focus();
-        return;
-      }
+      if (first) { first.focus(); return; }
+
+      /* contractors type ironwoodair.com, not https://ironwoodair.com */
+      var site = form.elements.website;
+      if (!/^https?:\/\//i.test(site.value.trim())) { site.value = 'https://' + site.value.trim(); }
 
       send.disabled = true;
-      send.textContent = 'Sending\u2026';
+      send.textContent = 'Sending…';
 
       var payload = {};
       new FormData(form).forEach(function (v, k) { payload[k] = v; });
@@ -801,7 +846,8 @@
         .catch(function () {
           send.disabled = false;
           send.textContent = 'Build my demo';
-          fail('That did not send. Email hello@goodcallai.org or call (234) 635-2475 and we will sort it.');
+          err.textContent = 'That did not send. Email hello@goodcallai.org or call (234) 635-2475 and we will sort it.';
+          err.hidden = false;
         });
     });
   }
