@@ -626,3 +626,20 @@ p{margin:0}
   .leadmodal[open]{animation:lm-in .3s cubic-bezier(.2,.7,.3,1)}
   @keyframes lm-in{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:none}}
 }
+
+/* ── Leave a review ──────────────────────────────────────────────────── */
+.footer-linkbtn{
+  border:none;background:none;padding:0;font:inherit;cursor:pointer;
+  color:inherit;text-align:left;
+}
+.reviewmodal .lm-title{margin-top:4px}
+.rv-stars{display:flex;gap:4px}
+.rv-star{
+  border:none;background:none;padding:2px;cursor:pointer;line-height:1;
+  font-size:27px;color:var(--line);border-radius:6px;
+  transition:color .12s,transform .12s;
+}
+.rv-star:hover{transform:scale(1.08)}
+.rv-star.on{color:var(--rust)}
+.rv-star:focus-visible{outline:2px solid var(--rust);outline-offset:2px}
+.lm-field.is-bad .rv-stars{padding:2px 6px;border-radius:8px;background:#FDF2ED}

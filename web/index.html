@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI Receptionist for Houston HVAC &amp; Plumbing | GoodcallAI</title>
-<meta name="description" content="Managed AI receptionist and virtual answering service for Houston HVAC, plumbing and electrical teams. Custom built, run for you. Book a free demo.">
+<meta name="description" content="Managed AI receptionist and virtual answering service for Houston HVAC, plumbing and electrical teams. Custom built, run for you. Get a free demo on your own business.">
 <link rel="canonical" href="https://goodcallai.org/">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#141210">
@@ -102,29 +102,29 @@
 
     <nav class="nav-links" aria-label="Main">
       <a href="#problem">The problem</a>
+      <a href="#hear">Hear it</a>
+      <a href="#how">How it works</a>
       <a href="#trades">Your trade</a>
       <a href="#cost">Missed calls</a>
-      <a href="#how">How it works</a>
-      <a href="#hear">Hear it</a>
       <a href="#area">Service area</a>
       <a href="#faq">FAQ</a>
     </nav>
 
     <a class="btn btn-ghost btn-sm nav-demo" href="#hear">Hear it now</a>
-    <a class="btn btn-primary btn-sm nav-cta" href="#book">Book a free demo</a>
+    <button class="btn btn-primary btn-sm nav-cta" type="button" data-lead-open>Get a free demo</button>
 
     <details class="nav-menu">
       <summary aria-label="Open menu">Menu</summary>
       <div class="nav-panel">
         <a href="#problem">The problem</a>
+        <a href="#hear">Hear it</a>
+        <a href="#how">How it works</a>
         <a href="#trades">Your trade</a>
         <a href="#cost">Missed calls</a>
-        <a href="#how">How it works</a>
-        <a href="#hear">Hear it</a>
         <a href="#area">Service area</a>
         <a href="#faq">FAQ</a>
         <a class="btn btn-ghost btn-wide" href="#hear">Hear it now</a>
-        <a class="btn btn-primary btn-wide" href="#book">Book a free demo</a>
+        <button class="btn btn-primary btn-wide" type="button" data-lead-open>Get a free demo</button>
       </div>
     </details>
   </div>
@@ -141,8 +141,8 @@
       <p class="hero-sub">GoodcallAI is a managed AI receptionist and virtual answering service for Houston home-service teams. It answers your phone around the clock — nights, weekends, and every time your crew is already on a job.</p>
       <p class="hero-fine">Custom built for your business. Managed by us. No software to learn.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#book">Book your free demo <span aria-hidden="true">→</span></a>
-        <a class="btn btn-ghost" href="#how">See how it works</a>
+        <button class="btn btn-primary" type="button" data-lead-open>Get your free demo <span aria-hidden="true">→</span></button>
+        <a class="btn btn-ghost" href="#hear">Hear it on your business</a>
       </div>
     </div>
 
@@ -220,61 +220,44 @@
   </div>
 </section>
 
-<!-- ══ Cost of missed calls ═════════════════════════════════════════ -->
-<section class="section roi" id="cost">
+<!-- ══ Hear it — the live demo line ═══════════════════════════════ -->
+<section class="section hear" id="hear">
   <div class="shell">
     <div class="section-head">
-      <p class="eyebrow">Do the math</p>
-      <h2>What is a missed call actually costing you?</h2>
-      <p class="lede">Three numbers you already know. Move the sliders and see the gap in your own money. Nothing is sent anywhere and nothing is saved.</p>
+      <p class="eyebrow">Hear it</p>
+      <h2>Call it. It answers as <em>your</em> company.</h2>
+      <p class="lede">Not a recording of somebody else's business. Tell it your company name and your trade, and it picks up as your receptionist while you play the customer. Two minutes, and there is nothing to sign up for.</p>
     </div>
 
-    <div class="roi-grid">
-
-      <div class="roi-inputs">
-        <div class="roi-field">
-          <div class="roi-top">
-            <label for="roiCalls">Calls you miss in a month</label>
-            <output class="roi-val" id="roiCallsOut" for="roiCalls">40</output>
-          </div>
-          <input type="range" id="roiCalls" min="5" max="200" step="5" value="40">
-          <div class="roi-scale"><span>5</span><span>200</span></div>
-        </div>
-
-        <div class="roi-field">
-          <div class="roi-top">
-            <label for="roiRate">Of the calls you answer, how many become jobs</label>
-            <output class="roi-val" id="roiRateOut" for="roiRate">40%</output>
-          </div>
-          <input type="range" id="roiRate" min="5" max="100" step="5" value="40">
-          <div class="roi-scale"><span>5%</span><span>100%</span></div>
-        </div>
-
-        <div class="roi-field">
-          <div class="roi-top">
-            <label for="roiValue">Your average job value</label>
-            <output class="roi-val" id="roiValueOut" for="roiValue">$450</output>
-          </div>
-          <input type="range" id="roiValue" min="100" max="5000" step="50" value="450">
-          <div class="roi-scale"><span>$100</span><span>$5,000</span></div>
-        </div>
+    <div class="hear-steps">
+      <div class="hear-step">
+        <span class="hs-n">Step one</span>
+        <h3>Call the line.</h3>
+        <p>No form, no signup, nothing to install. Hang up whenever you have heard enough.</p>
       </div>
-
-      <aside class="roi-result on-dark">
-        <p class="rr-label">Revenue walking past you</p>
-        <p class="rr-big" id="roiMonth">$7,200</p>
-        <p class="rr-per">a month</p>
-        <p class="rr-year">That is <strong id="roiYear">$86,400</strong> over a year.</p>
-        <p class="rr-work" id="roiWork">40 missed calls &times; 40% booked &times; $450 a job.</p>
-        <div class="rr-actions">
-          <a class="btn btn-primary btn-wide" href="#hear">Hear it on your business <span aria-hidden="true">&rarr;</span></a>
-          <a class="btn btn-ghost btn-wide" href="#book">Book a free demo</a>
-        </div>
-      </aside>
-
+      <div class="hear-step">
+        <span class="hs-n">Step two</span>
+        <h3>Answer four questions.</h3>
+        <p>Your company name, your trade, the parts of Houston you cover, and what counts as an emergency after hours.</p>
+      </div>
+      <div class="hear-step">
+        <span class="hs-n">Step three</span>
+        <h3>Now you're the customer.</h3>
+        <p>It answers as your business. Ask it what your callers actually ask — no cooling at 9pm, a burst pipe, a price on a new system.</p>
+      </div>
     </div>
 
-    <p class="roi-note">This is arithmetic on the numbers you enter, nothing more. We make no claim here about how many of those calls we would recover &mdash; that is what the demo is for.</p>
+    <div class="callband">
+      <div class="cb-text">
+        <p class="cb-eyebrow">The demo line</p>
+        <h3>Try it on your own business.</h3>
+        <p class="cb-note">Open now. If it is busy, try again in a few minutes — we keep the line small on purpose.</p>
+      </div>
+      <div class="cb-num">
+        <a class="bignum" href="tel:+12346352475">(234)&nbsp;635-2475</a>
+        <p class="cb-sub">Tap to call. Two minutes, no pitch.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -293,6 +276,34 @@
       <article><h3>Service-area and common questions</h3><p>Answers what you would answer — where you work, what you charge to come out, when you can get there.</p></article>
       <article><h3>Transfers to your on-call tech</h3><p>When the call needs a human right now, it passes it through with the details already gathered.</p></article>
     </div>
+  </div>
+</section>
+
+<!-- ══ How it works ═════════════════════════════════════════════════ -->
+<section class="section steps on-dark" id="how">
+  <div class="shell">
+    <div class="section-head centered">
+      <p class="eyebrow">Simple by design</p>
+      <h2>Live on your line in under a week.</h2>
+      <p class="lede">Three steps, and two of them are ours.</p>
+    </div>
+    <ol class="step-track">
+      <li>
+        <span class="step-num" aria-hidden="true">1</span>
+        <h3>Tell us about the business</h3>
+        <p>Your services, your area, your hours, and what you want asked on a call.</p>
+      </li>
+      <li>
+        <span class="step-num" aria-hidden="true">2</span>
+        <h3>We build it and you listen</h3>
+        <p>We write the call flow and record it handling your calls. You hear it before any customer does.</p>
+      </li>
+      <li>
+        <span class="step-num" aria-hidden="true">3</span>
+        <h3>Forward your phone</h3>
+        <p>Keep your number. Forward it always, or only when nobody picks up.</p>
+      </li>
+    </ol>
   </div>
 </section>
 
@@ -362,72 +373,61 @@
   </div>
 </section>
 
-<!-- ══ How it works ═════════════════════════════════════════════════ -->
-<section class="section steps on-dark" id="how">
-  <div class="shell">
-    <div class="section-head centered">
-      <p class="eyebrow">Simple by design</p>
-      <h2>Live on your line in under a week.</h2>
-      <p class="lede">Three steps, and two of them are ours.</p>
-    </div>
-    <ol class="step-track">
-      <li>
-        <span class="step-num" aria-hidden="true">1</span>
-        <h3>Tell us about the business</h3>
-        <p>Your services, your area, your hours, and what you want asked on a call.</p>
-      </li>
-      <li>
-        <span class="step-num" aria-hidden="true">2</span>
-        <h3>We build it and you listen</h3>
-        <p>We write the call flow and record it handling your calls. You hear it before any customer does.</p>
-      </li>
-      <li>
-        <span class="step-num" aria-hidden="true">3</span>
-        <h3>Forward your phone</h3>
-        <p>Keep your number. Forward it always, or only when nobody picks up.</p>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<!-- ══ Hear it — the live demo line ═══════════════════════════════ -->
-<section class="section hear" id="hear">
+<!-- ══ Cost of missed calls ═════════════════════════════════════════ -->
+<section class="section roi" id="cost">
   <div class="shell">
     <div class="section-head">
-      <p class="eyebrow">Hear it</p>
-      <h2>Call it. It answers as <em>your</em> company.</h2>
-      <p class="lede">Not a recording of somebody else's business. Tell it your company name and your trade, and it picks up as your receptionist while you play the customer. Two minutes, and there is nothing to sign up for.</p>
+      <p class="eyebrow">Do the math</p>
+      <h2>What is a missed call actually costing you?</h2>
+      <p class="lede">Three numbers you already know. Move the sliders and see the gap in your own money. Nothing is sent anywhere and nothing is saved.</p>
     </div>
 
-    <div class="hear-steps">
-      <div class="hear-step">
-        <span class="hs-n">Step one</span>
-        <h3>Call the line.</h3>
-        <p>No form, no signup, nothing to install. Hang up whenever you have heard enough.</p>
+    <div class="roi-grid">
+
+      <div class="roi-inputs">
+        <div class="roi-field">
+          <div class="roi-top">
+            <label for="roiCalls">Calls you miss in a month</label>
+            <output class="roi-val" id="roiCallsOut" for="roiCalls">40</output>
+          </div>
+          <input type="range" id="roiCalls" min="5" max="200" step="5" value="40">
+          <div class="roi-scale"><span>5</span><span>200</span></div>
+        </div>
+
+        <div class="roi-field">
+          <div class="roi-top">
+            <label for="roiRate">Of the calls you answer, how many become jobs</label>
+            <output class="roi-val" id="roiRateOut" for="roiRate">40%</output>
+          </div>
+          <input type="range" id="roiRate" min="5" max="100" step="5" value="40">
+          <div class="roi-scale"><span>5%</span><span>100%</span></div>
+        </div>
+
+        <div class="roi-field">
+          <div class="roi-top">
+            <label for="roiValue">Your average job value</label>
+            <output class="roi-val" id="roiValueOut" for="roiValue">$450</output>
+          </div>
+          <input type="range" id="roiValue" min="100" max="5000" step="50" value="450">
+          <div class="roi-scale"><span>$100</span><span>$5,000</span></div>
+        </div>
       </div>
-      <div class="hear-step">
-        <span class="hs-n">Step two</span>
-        <h3>Answer four questions.</h3>
-        <p>Your company name, your trade, the parts of Houston you cover, and what counts as an emergency after hours.</p>
-      </div>
-      <div class="hear-step">
-        <span class="hs-n">Step three</span>
-        <h3>Now you're the customer.</h3>
-        <p>It answers as your business. Ask it what your callers actually ask — no cooling at 9pm, a burst pipe, a price on a new system.</p>
-      </div>
+
+      <aside class="roi-result on-dark">
+        <p class="rr-label">Revenue walking past you</p>
+        <p class="rr-big" id="roiMonth">$7,200</p>
+        <p class="rr-per">a month</p>
+        <p class="rr-year">That is <strong id="roiYear">$86,400</strong> over a year.</p>
+        <p class="rr-work" id="roiWork">40 missed calls &times; 40% booked &times; $450 a job.</p>
+        <div class="rr-actions">
+          <a class="btn btn-primary btn-wide" href="#hear">Hear it on your business <span aria-hidden="true">&rarr;</span></a>
+          <button class="btn btn-ghost btn-wide" type="button" data-lead-open>Get a free demo</button>
+        </div>
+      </aside>
+
     </div>
 
-    <div class="callband">
-      <div class="cb-text">
-        <p class="cb-eyebrow">The demo line</p>
-        <h3>Try it on your own business.</h3>
-        <p class="cb-note">Open now. If it is busy, try again in a few minutes — we keep the line small on purpose.</p>
-      </div>
-      <div class="cb-num">
-        <a class="bignum" href="tel:+12346352475">(234)&nbsp;635-2475</a>
-        <p class="cb-sub">Tap to call. Two minutes, no pitch.</p>
-      </div>
-    </div>
+    <p class="roi-note">This is arithmetic on the numbers you enter, nothing more. We make no claim here about how many of those calls we would recover &mdash; that is what the demo is for.</p>
   </div>
 </section>
 
@@ -498,15 +498,29 @@
     <div class="section-head">
       <p class="eyebrow">Get started</p>
       <h2>Hear it on your own business first.</h2>
-      <p class="lede">We build a short demo on your company — your name, your trade, your service area — before you commit to anything. Three ways to reach us, whichever suits you.</p>
+      <p class="lede">We build a short demo on your company &mdash; your name, your trade, your service area &mdash; before you commit to anything. Four ways in, whichever suits you.</p>
     </div>
     <div class="contact-grid">
 
       <article class="contact-card lead">
         <span class="cc-step">First choice</span>
-        <h3>Book a free demo</h3>
-        <p>Fifteen minutes. Pick a time that works, and we will have your demo ready.</p>
-        <a class="btn btn-primary btn-wide" data-book-open href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3qZrBQ6S-W782JUygtFJiwdV_SInvA6hmJd0nJ0hTcNmm8LUTF-afjVY8-STyi_hiJ7_RGQVJf" target="_blank" rel="noopener noreferrer">Choose a time <span aria-hidden="true">→</span></a>
+        <h3>Get your free demo</h3>
+        <p>Tell us about your business and we build a receptionist on it. You get a number to call within 24 hours.</p>
+        <button class="btn btn-primary btn-wide" type="button" data-lead-open>Build my demo <span aria-hidden="true">&rarr;</span></button>
+      </article>
+
+      <article class="contact-card">
+        <span class="cc-step">Rather talk first</span>
+        <h3>Book a meeting</h3>
+        <p>Fifteen minutes with Adeel. Ask anything, and we can set the demo up together on the call.</p>
+        <a class="btn btn-ghost btn-wide" data-book-open href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3qZrBQ6S-W782JUygtFJiwdV_SInvA6hmJd0nJ0hTcNmm8LUTF-afjVY8-STyi_hiJ7_RGQVJf" target="_blank" rel="noopener noreferrer">Choose a time <span aria-hidden="true">&rarr;</span></a>
+      </article>
+
+      <article class="contact-card">
+        <span class="cc-step">Fastest reply</span>
+        <h3>WhatsApp</h3>
+        <p>Quick question, or want the demo sent straight to your phone? Message us.</p>
+        <a class="btn btn-ghost btn-wide" href="https://wa.me/17472362546?text=Hi%20GoodcallAI%2C%20I%27d%20like%20a%20custom%20AI%20call%20demo%20for%20my%20business." target="_blank" rel="noopener noreferrer">Message us <span aria-hidden="true">&#8599;</span></a>
       </article>
 
       <article class="contact-card">
@@ -514,13 +528,6 @@
         <h3>Email us</h3>
         <p>Send your company name and website. We will come back with what we would build.</p>
         <a class="btn btn-ghost btn-wide" href="mailto:hello@goodcallai.org?subject=AI%20receptionist%20inquiry">hello@goodcallai.org</a>
-      </article>
-
-      <article class="contact-card">
-        <span class="cc-step">Fastest reply</span>
-        <h3>WhatsApp</h3>
-        <p>Quick question, or want the demo sent straight to your phone? Message us.</p>
-        <a class="btn btn-ghost btn-wide" href="https://wa.me/17472362546?text=Hi%20GoodcallAI%2C%20I%27d%20like%20a%20custom%20AI%20call%20demo%20for%20my%20business." target="_blank" rel="noopener noreferrer">Message us <span aria-hidden="true">↗</span></a>
       </article>
 
     </div>
@@ -552,13 +559,14 @@
       </div>
       <nav class="footer-links" aria-label="Footer">
         <a href="#problem">The problem</a>
+        <a href="#hear">Hear it</a>
+        <a href="#how">How it works</a>
         <a href="#trades">Your trade</a>
         <a href="#cost">Missed calls</a>
-        <a href="#how">How it works</a>
-        <a href="#hear">Hear it</a>
         <a href="#area">Service area</a>
         <a href="#faq">FAQ</a>
-        <a href="#book">Book a demo</a>
+        <a href="#book">Get started</a>
+        <button class="footer-linkbtn" type="button" data-review-open>Leave a review</button>
         <a href="/privacy.html">Privacy</a>
         <a href="/terms.html">Terms</a>
       </nav>
@@ -575,8 +583,7 @@
   <button class="lm-close" type="button" data-lead-close aria-label="Close">&times;</button>
 
   <div class="lm-body" id="leadBody">
-    <p class="lm-eyebrow">Free demo &middot; No commitment</p>
-    <h2 class="lm-title" id="leadTitle">Hear it answer your phone. Two days.</h2>
+    <h2 class="lm-title" id="leadTitle">Hear it answer your phone. In 24 hours.</h2>
     <p class="lm-lede">We build a receptionist on your business &mdash; your company name, your trade, your service area &mdash; then send you a number. You call it and hear it handle your own calls before you decide anything.</p>
 
     <form class="lm-form" id="leadForm" novalidate>
@@ -643,18 +650,78 @@
   <div class="lm-done" id="leadDone" hidden>
     <p class="lm-tick" aria-hidden="true">&check;</p>
     <h2>Got it.</h2>
-    <p>We will build your demo and send the number within two days. If you would rather not wait, the demo line is live right now &mdash; <a href="tel:+12346352475">(234)&nbsp;635-2475</a>.</p>
+    <p>We will build your demo and send the number within 24 hours. If you would rather not wait, the demo line is live right now &mdash; <a href="tel:+12346352475">(234)&nbsp;635-2475</a>.</p>
     <button class="btn btn-ghost" type="button" data-lead-close>Close</button>
   </div>
 </dialog>
 
+<!-- ══ Leave a review ══════════════════════════════════════════════ -->
+<dialog class="leadmodal reviewmodal" id="reviewModal" aria-labelledby="revTitle">
+  <button class="lm-close" type="button" data-review-close aria-label="Close">&times;</button>
+
+  <div class="lm-body" id="revBody">
+    <h2 class="lm-title" id="revTitle">Leave us a review</h2>
+    <p class="lm-lede">If we answer your phones, tell us how it is going. Good or bad &mdash; the bad ones are the ones we can do something about.</p>
+
+    <form class="lm-form" id="revForm" novalidate>
+      <input type="hidden" name="access_key" id="revKey">
+      <input type="hidden" name="subject" value="New review from goodcallai.org">
+      <input type="hidden" name="from_name" value="GoodcallAI website">
+      <input type="checkbox" name="botcheck" class="lm-hp" tabindex="-1" autocomplete="off">
+
+      <div class="lm-field" data-field="rev_name">
+        <label for="rv-name">Your name</label>
+        <input type="text" id="rv-name" name="rev_name" autocomplete="name" required>
+        <p class="lm-msg" hidden></p>
+      </div>
+
+      <div class="lm-field" data-field="rev_business">
+        <label for="rv-business">Business name</label>
+        <input type="text" id="rv-business" name="rev_business" autocomplete="organization" required>
+        <p class="lm-msg" hidden></p>
+      </div>
+
+      <div class="lm-field" data-field="rev_rating">
+        <label id="rvRateLabel">How would you rate us?</label>
+        <div class="rv-stars" role="radiogroup" aria-labelledby="rvRateLabel" id="rvStars">
+          <button class="rv-star" type="button" role="radio" aria-checked="false" data-star="1" aria-label="1 star">&#9733;</button>
+          <button class="rv-star" type="button" role="radio" aria-checked="false" data-star="2" aria-label="2 stars">&#9733;</button>
+          <button class="rv-star" type="button" role="radio" aria-checked="false" data-star="3" aria-label="3 stars">&#9733;</button>
+          <button class="rv-star" type="button" role="radio" aria-checked="false" data-star="4" aria-label="4 stars">&#9733;</button>
+          <button class="rv-star" type="button" role="radio" aria-checked="false" data-star="5" aria-label="5 stars">&#9733;</button>
+        </div>
+        <input type="hidden" name="rev_rating" id="rvRating" value="">
+        <p class="lm-msg" hidden></p>
+      </div>
+
+      <div class="lm-field" data-field="rev_text">
+        <label for="rv-text">Your review</label>
+        <textarea id="rv-text" name="rev_text" rows="5" required
+          placeholder="What is it doing well, and what should we fix?"></textarea>
+        <p class="lm-msg" hidden></p>
+      </div>
+
+      <p class="lm-error" id="revError" hidden></p>
+      <button class="btn btn-primary btn-wide" type="submit" id="revSubmit">Send review</button>
+      <p class="lm-fine">We will ask before we publish anything you write here.</p>
+    </form>
+  </div>
+
+  <div class="lm-done" id="revDone" hidden>
+    <p class="lm-tick" aria-hidden="true">&check;</p>
+    <h2>Thank you.</h2>
+    <p>We read every one of these. If you raised something that needs fixing, we will be in touch.</p>
+    <button class="btn btn-ghost" type="button" data-review-close>Close</button>
+  </div>
+</dialog>
+
 <!-- ══ Booking overlay — keeps the visitor on goodcallai.org ════════ -->
-<dialog class="bookmodal" id="bookModal" aria-label="Book a free demo">
+<dialog class="bookmodal" id="bookModal" aria-label="Book a meeting">
   <div class="bm-bar">
-    <p class="bm-title">Book a free demo</p>
+    <p class="bm-title">Book a meeting</p>
     <button class="bm-close" type="button" data-book-close aria-label="Close booking">&times;</button>
   </div>
-  <iframe class="bm-frame" id="bookFrame" title="GoodcallAI booking calendar"
+  <iframe class="bm-frame" id="bookFrame" title="GoodcallAI meeting calendar"
           data-src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3qZrBQ6S-W782JUygtFJiwdV_SInvA6hmJd0nJ0hTcNmm8LUTF-afjVY8-STyi_hiJ7_RGQVJf?gv=true"
           loading="lazy" frameborder="0"></iframe>
   <p class="bm-fallback" id="bookFallback">Calendar not loading? <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3qZrBQ6S-W782JUygtFJiwdV_SInvA6hmJd0nJ0hTcNmm8LUTF-afjVY8-STyi_hiJ7_RGQVJf" target="_blank" rel="noopener noreferrer">Open it in a new tab</a>, or email <a href="mailto:hello@goodcallai.org">hello@goodcallai.org</a>.</p>
@@ -748,8 +815,8 @@
 
     if (!seen()) {
       setTimeout(function () {
-        if (seen() || lead.open) { return; }
-        if (modal && modal.open) { return; }      /* never stack on the booking overlay */
+        if (seen()) { return; }
+        if (document.querySelector('dialog[open]')) { return; }   /* never stack on another overlay */
         lead.showModal();
         mark();
       }, LEAD_DELAY);
@@ -848,6 +915,99 @@
           send.textContent = 'Build my demo';
           err.textContent = 'That did not send. Email hello@goodcallai.org or call (234) 635-2475 and we will sort it.';
           err.hidden = false;
+        });
+    });
+  }
+
+  /* ── Leave a review ────────────────────────────────────────────────── */
+  var rev = document.getElementById('reviewModal');
+  if (rev && LEAD_KEY && typeof rev.showModal === 'function') {
+    var rForm = document.getElementById('revForm');
+    var rBody = document.getElementById('revBody');
+    var rDone = document.getElementById('revDone');
+    var rErr  = document.getElementById('revError');
+    var rSend = document.getElementById('revSubmit');
+    var rRate = document.getElementById('rvRating');
+    document.getElementById('revKey').value = LEAD_KEY;
+
+    document.querySelectorAll('[data-review-open]').forEach(function (b) {
+      b.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (lead && lead.open) { lead.close(); }
+        if (modal && modal.open) { modal.close(); }
+        if (!rev.open) { rev.showModal(); }
+      });
+    });
+    rev.querySelectorAll('[data-review-close]').forEach(function (b) {
+      b.addEventListener('click', function () { rev.close(); });
+    });
+    rev.addEventListener('click', function (e) { if (e.target === rev) { rev.close(); } });
+
+    var stars = Array.prototype.slice.call(document.querySelectorAll('.rv-star'));
+    function paint(n) {
+      stars.forEach(function (s, i) {
+        s.classList.toggle('on', i < n);
+        s.setAttribute('aria-checked', (i + 1) === n ? 'true' : 'false');
+      });
+    }
+    stars.forEach(function (s) {
+      s.addEventListener('click', function () {
+        rRate.value = s.dataset.star;
+        paint(+s.dataset.star);
+        rMark('rev_rating', true, '');
+      });
+    });
+
+    function rMark(name, ok, msg) {
+      var wrap = rForm.querySelector('[data-field="' + name + '"]');
+      var out  = wrap.querySelector('.lm-msg');
+      wrap.classList.toggle('is-bad', !ok);
+      out.textContent = ok ? '' : msg;
+      out.hidden = ok;
+    }
+
+    var R_RULES = [
+      ['rev_name',     function (v) { return v.length > 1; },  'Tell us your name.'],
+      ['rev_business', function (v) { return v.length > 1; },  'Which business are you with?'],
+      ['rev_rating',   function (v) { return v !== ''; },      'Pick a rating.'],
+      ['rev_text',     function (v) { return v.length > 9; },  'Say a little more than that.']
+    ];
+
+    rForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      rErr.hidden = true;
+
+      var first = null;
+      R_RULES.forEach(function (r) {
+        var el = rForm.elements[r[0]];
+        var ok = r[1](el.value.trim());
+        rMark(r[0], ok, r[2]);
+        if (!ok && !first) { first = el; }
+      });
+      if (first) { if (first.type !== 'hidden') { first.focus(); } return; }
+
+      rSend.disabled = true;
+      rSend.textContent = 'Sending…';
+
+      var payload = {};
+      new FormData(rForm).forEach(function (v, k) { payload[k] = v; });
+
+      fetch(LEAD_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload)
+      })
+        .then(function (r) { return r.json().catch(function () { return { success: r.ok }; }); })
+        .then(function (d) {
+          if (!d.success) { throw new Error('rejected'); }
+          rBody.hidden = true;
+          rDone.hidden = false;
+        })
+        .catch(function () {
+          rSend.disabled = false;
+          rSend.textContent = 'Send review';
+          rErr.textContent = 'That did not send. Email it to hello@goodcallai.org instead and we will read it.';
+          rErr.hidden = false;
         });
     });
   }
