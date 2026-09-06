@@ -643,3 +643,8 @@ p{margin:0}
 .rv-star.on{color:var(--rust)}
 .rv-star:focus-visible{outline:2px solid var(--rust);outline-offset:2px}
 .lm-field.is-bad .rv-stars{padding:2px 6px;border-radius:8px;background:#FDF2ED}
+.footer-linkbtn[data-review-open]{
+  color:var(--ember);font-weight:600;text-decoration:underline;
+  text-underline-offset:3px;text-decoration-thickness:1px;
+}
+.footer-linkbtn[data-review-open]:hover{color:var(--white)}
