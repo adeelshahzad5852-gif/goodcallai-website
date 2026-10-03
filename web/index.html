@@ -802,7 +802,8 @@
   /* ── Demo request overlay ──────────────────────────────────────────── */
   var LEAD_KEY   = 'a9d05928-993d-4cca-905a-5817f4d2543c';   /* Web3Forms */
   var LEAD_URL   = 'https://api.web3forms.com/submit';
-  var LEAD_DELAY = 6000;               /* how long before it appears */
+  var LEAD_SCROLL  = 0.45;             /* how far down the page before it appears */
+  var LEAD_MIN_MS  = 8000;             /* and never sooner than this after arriving */
   var LEAD_SEEN  = 'gc_lead_v1';       /* remembers this visitor */
 
   var lead = document.getElementById('leadModal');
@@ -818,13 +819,34 @@
     function seen()   { try { return localStorage.getItem(LEAD_SEEN) === '1'; } catch (e) { return false; } }
     function mark()   { try { localStorage.setItem(LEAD_SEEN, '1'); } catch (e) {} }
 
+    /* Wait until the visitor has read some of the page. Never interrupt an
+       arrival, and never on a fast scroll either — both conditions must hold. */
     if (!seen()) {
-      setTimeout(function () {
-        if (seen()) { return; }
-        if (document.querySelector('dialog[open]')) { return; }   /* never stack on another overlay */
+      var arrived = Date.now();
+
+      function depth() {
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        if (h <= 0) { return 1; }
+        return (window.pageYOffset || document.documentElement.scrollTop) / h;
+      }
+
+      function maybeOpen() {
+        if (seen()) { stop(); return; }
+        if (Date.now() - arrived < LEAD_MIN_MS) { return; }
+        if (depth() < LEAD_SCROLL) { return; }
+        if (document.querySelector('dialog[open]')) { return; }  /* never stack on another overlay */
+        stop();
         lead.showModal();
         mark();
-      }, LEAD_DELAY);
+      }
+
+      function stop() {
+        window.removeEventListener('scroll', maybeOpen);
+        window.removeEventListener('resize', maybeOpen);
+      }
+
+      window.addEventListener('scroll', maybeOpen, { passive: true });
+      window.addEventListener('resize', maybeOpen, { passive: true });
     }
 
     /* Any element with data-lead-open reopens it. Nothing carries that yet. */
